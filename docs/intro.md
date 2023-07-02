@@ -2,46 +2,109 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Nanc - CMS of new generation. Extensible, adaptable and powerful. You can use it with **your existing backend** (wrote by your hands) or with existed Firebase / Supabase / **any other kind project**, managing your content / data / applications from one place or you can start your new creation using Nanc as a management tool in combination with **any kind of backend** - any cloud or custom backend in the ordinary sense of the word.
 
-## Getting Started
+## Fast start
 
-Get started by **creating a new site**.
+### Clone Nanc repo
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
+To start using Nanc you should clone project:
 
 ```bash
-npm init docusaurus@latest my-website classic
+git clone git@github.com:alphamikle/nanc.git
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### Create your own app
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+Then - create a new Flutter-app project with targeting on web and any desktop platform (last is by your wish) on the same level as created previous folder `nanc`:
 
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
+```
+/some_directory
+├── /nanc
+└── /<your_nanc_cms_app_dir> <- Create a new directory on that level
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### Install dependencies
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+Third step - install two critical dependencies into your created app:
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+```yaml
+dependencies:
+  cms:
+    path: ../../nanc/cms
+  config:
+    path: ../../nanc/config
+```
+
+### Copy-paste app template
+
+And fourth - add a base template for your application's core instead of the content in the `main.dart` file:
+
+```dart
+import 'dart:async';
+
+import 'package:cms/cms.dart';
+import 'package:config/config.dart';
+import 'package:flutter/material.dart';
+
+Future<void> main() async {
+  await runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await adminRunner(
+      CmsConfig(
+        /// ? Your should implement these APIs or use already implemented instead
+        collectionApi: ICollectionApi(),
+        pageApi: IPageApi(),
+        modelApi: IModelApi(),
+        networkConfig: NetworkConfig(
+          paginationPageNumberParameterName: 'page',
+          paginationLimitParameterName: 'limit',
+          paginationDataContainerParameterName: 'data',
+          paginationTotalPagesParameterName: 'total_pages',
+          paginationLimitParameterDefaultValue: 100,
+        ),
+        imageBuilderDelegate: null,
+        adminWrapperBuilder: null,
+        predefinedModels: [
+          /// ? Here will be a list of your predefined code-first models
+        ],
+        customRenderers: [],
+        clickHandlers: [],
+        customFonts: [],
+      ),
+    );
+  }, ErrorsCatcher.catchZoneErrors);
+}
+```
+### Select API
+
+On that stage, you should decide - which APIs you will use to connect to your data. For now already implemented several APIs:
+
+#### [Local API](./packages/nanc_api_local)
+Which work with local JSON-file as a backend. On the web it will use LocalStorage.
+
+> Local API is zero-config API, very simple to use and to get know Nanc.
+
+#### [Supabase API](./packages/nanc_api_supabase)
+Completely ready solution for working with Supabase. It supports all features for managing your data directly from Nanc - powerful filtering, creating new tables, managing relationships, etc.
+
+#### [Firebase API](./packages/nanc_api_firebase)
+Completely ready solution for working with Firebase. Makes it easy to get started with Nanc, using as a data provider...Firebase!
+
+### Add ${your_choice}_api
+
+```yaml
+dependencies:
+  nanc_api_local:
+    path: ../../nanc/nanc_api_local
+```
+
+### Use API
+
+After you installed some API (like `nanc_local_api`) you should add it to the `CmsConfig` at the `main.dart` file:
+
+```dart
+
+```
