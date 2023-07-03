@@ -1,4 +1,8 @@
 label: Packages
-position: 1
+position: 3
 link:
   type: generated-index
+  description: |
+    Nanc consists of many individual packages / plugins that together form
+    one application that you can extend without any headaches.
+    This section provides information about all the packages included in Nanc that you may find useful.
