@@ -7,7 +7,7 @@ The **field** is one of the most important concepts of Nanc. Each field is respo
 ```yaml
 dependencies:
   fields:
-    path: ../../nanc/fields
+    path: ../nanc/fields
 ```
 
 Below is a list of fields available for use in Nanc:

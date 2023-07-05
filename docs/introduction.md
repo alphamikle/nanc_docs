@@ -35,9 +35,9 @@ Third step - install two critical dependencies into your created app:
 ```yaml
 dependencies:
   cms:
-    path: ../../nanc/cms
+    path: ../nanc/cms
   config:
-    path: ../../nanc/config
+    path: ../nanc/config
 ```
 
 ### Copy-paste app template
@@ -84,7 +84,7 @@ Future<void> main() async {
 
 On that stage, you should decide - which APIs you will use to connect to your data. For now already implemented several APIs:
 
-#### [Local API](packages/api/nanc_api_local.md)
+#### [Local API](packages/api/nanc_api_local)
 Which work with local JSON-file as a backend. On the web it will use LocalStorage.
 
 > Local API is zero-config API, very simple to use and to get know Nanc.
@@ -100,7 +100,7 @@ Completely ready solution for working with Firebase. Makes it easy to get starte
 ```yaml
 dependencies:
   nanc_api_local:
-    path: ../../nanc/nanc_api_local
+    path: ../nanc/nanc_api_local
 ```
 
 ### Use API

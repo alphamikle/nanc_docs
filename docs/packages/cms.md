@@ -7,5 +7,5 @@ The Nanc kernel, which gives you a method to run the CMS, as well as a service t
 ```yaml
 dependencies:
   cms:
-    path: ../../nanc/cms
+    path: ../nanc/cms
 ```
