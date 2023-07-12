@@ -122,6 +122,23 @@ The `adminWrapperBuilder` is a special builder-method that allows you to wrap th
 
 `customFonts` - an option to expand the available fonts in the Nanc Backend Driven UI. You can add any custom font to your Nanc application (official instructions), then, specify the parameters of the added font in this parameter, which accepts a list of font extensions, and voila - in your Nanc build, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the [Nanc Backend Driven UI](./backend_driven_ui).
 
+## Web App Configuration
+
+For the Nanc-IDE synchronization functionality to work correctly in a web environment, you need to add the following line to the `path_to_your_nanc_project/web/index.html` file:
+
+```html
+   <!-- This script adds the flutter initialization JS code -->
+   <script src="flutter.js" defer></script>
+
+    <!-- ⬇︎⬇︎ ADD THIS LINE HERE ⬇︎⬇︎ -->
+   <script src="file_system_library.js" defer></script>
+</head>
+```
+
+And copy the corresponding file `nanc/file_syncer/file_system_library.js` to the same path: `path_to_your_nanc_project/web/file_system_library.js`
+
+> You can learn more about synchronization with the IDE in the Backend Driven UI section.
+
 ## Mobile App Configuration
 
 To configure the package used in the mobile app, see the [Mobile App Configuration section](./mobile_app_configuring).

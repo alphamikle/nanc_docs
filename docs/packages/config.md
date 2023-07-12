@@ -13,3 +13,5 @@ dependencies:
   config:
     path: ../nanc/config
 ```
+
+More info about configuration for CMS you can find [here](/docs/nanc_configuring) and about mobile app configuration [here](/docs/mobile_app_configuring).
