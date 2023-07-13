@@ -250,6 +250,8 @@ As mentioned above - Nanc has built-in interactive documentation for each widget
 
 ### IDE Sync
 
-At the moment, the built-in code editor in Nanc is, frankly, crappy. In addition, if you are a developer, it will be much more convenient for you to develop a new screen or component in Nanc in your favorite and cozy IDE. That's why Nanc supports this feature - you can sync Nanc's screen editor with any file on your file system. It doesn't matter if Nanc is running in your browser, deployed somewhere, or if you run it locally under a desktop platform (Mac / Windows / Linux).
+At the moment, the built-in code editor in Nanc is, frankly, crappy. In addition, if you are a developer, it will be much more convenient for you to develop a new screen or component in Nanc in your favorite and cozy IDE. That's why Nanc supports this feature - you can sync Nanc's screen editor with any file on your file system. It doesn't matter if Nanc is running in your browser, deployed somewhere, or if you run it locally under a desktop platform (Mac / Windows / Linux). But, don't forget - to have this ability in web-environment, you should [install](./nanc_configuring#web-app-configuration) additional thing too.
 
 To understand what the essence is, you can watch the following video:
+
+<video src="/videos/sync_with_ide.mp4" controls width="100%"></video>
