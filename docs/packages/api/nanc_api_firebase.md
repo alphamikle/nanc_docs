@@ -92,22 +92,20 @@ Future<void> main() async {
 
     /// ? Partially-local ICollectionApi implementation
     final FirebaseLocalCollectionApi firebaseLocalCollectionApi = FirebaseLocalCollectionApi(api: firebaseApi);
-    
-    final FirebasePageApi firebasePageApi = FirebasePageApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
+
+    final FirebaseDocumentApi firebasePageApi = FirebaseDocumentApi(api: firebaseApi, firebaseCollectionApi: firebaseCollectionApi);
     final FirebaseModelApi firebaseModelApi = FirebaseModelApi();
 
     await adminRunner(
       CmsConfig(
         /// ? Use them here
         collectionApi: firebaseCollectionApi,
-        pageApi: firebasePageApi,
+        documentApi: firebasePageApi,
         modelApi: firebaseModelApi,
-        networkConfig: NetworkConfig.simple(),
+        networkConfig: NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
-        predefinedModels: [
-          /// ? Here will be a list of your predefined code-first models
-        ],
+        predefinedModels: [],
         customRenderers: [],
         clickHandlers: [],
         customFonts: [],
@@ -123,4 +121,39 @@ Also, you might have noticed that there are two `ICollectionApi` implementations
 
 ## Backend-first Collection Api
 
-`FirebaseCollectionApi` - is an implementation of working with collections throught Firestore, which implies constant use of Firestore Database - any filtering, searching, pagination operations will be performed through a new call to the server. Also, the logic of data filtering and searching is implemented in full compliance with the capabilities of Firestore itself. And these capabilities are very limited. For example - you will not be able to find any document by partial coincidence of one of the fields of the document with the value you entered. Say - "find all movies whose title begins with the substring `Appo`". Also, filtering by multiple fields is very limited due to the architecture of Firestore itself, so with this API implementation you are limited in the complexity of filter combinations, and in addition, some filter variations will require you to create special Firestore indexes. However, the latter is not a big deal - just pay attention to the error notifications that may appear in the lower left corner. If you see such a message when trying to find something - from the detailed information in this message you will be able to follow the link straight to the Firestore index creation window, where you will have to click just one button. Let's take a look at what this might look like in real life:
+`FirebaseCollectionApi` - is an implementation of working with collections through Firestore, which implies constant use of Firestore Database - any filtering, searching, pagination operations will be performed through a new call to the server. Also, the logic of data filtering and searching is implemented in full compliance with the capabilities of Firestore itself. And these capabilities are very limited. For example - you will not be able to find any document by partial coincidence of one of the fields of the document with the value you entered. Say - "find all movies whose title begins with the substring `Appo`". Also, filtering by multiple fields is very limited due to the architecture of Firestore itself, so with this API implementation you are limited in the complexity of filter combinations, and in addition, some filter variations will require you to create special Firestore indexes.
+
+However, the latter is not a big deal - just pay attention to the error notifications that may appear in the lower left corner. If you see such a message when trying to find something - from the detailed information in this message you will be able to follow the link straight to the Firestore index creation window, where you will have to click just one button. Let's take a look at what this might look like in real life - **we will try to find movies, which release was from 1990 to 2000, or from 2010 to 2020, and box office is null (no data about box office)**:
+
+<video src="/videos/missing_firebase_index_error.mp4" controls width="100%"></video>
+
+### Reduced number of documents per page
+
+To reduce read quota usage, you can reduce the number of documents output per page by using the following network configuration:
+
+```dart
+NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
+```
+
+## Partially-local Collection Api
+
+:::caution
+The first time any collection is queried, this API implementation will load the entire collection in its entirety. If you have large collections with more than 2-3 thousand documents, be very careful when using this API, as you may very quickly spend the free reading limits of Firestore, and if you use the paid version - it may lead to additional expenses.
+:::
+
+`FirebaseLocalCollectionApi` is an implementation that supports short-term caching of loaded collections, as well as search and filtering of any level of complexity, which will be performed locally. Also, when loading data of any collection, absolutely all documents included in this collection will be loaded. This implementation will be useful if you need a very powerful search mechanism in your document collections, otherwise you should use Backend-First implementation, which will use Firebase read limit much more carefully.
+
+## Setting the cache lifetime
+
+You can set the response caching time for both API implementations. But the purposes of these parameters are slightly different.
+
+In `FirebaseCollectionApi` the default cache lifetime is zero - this means that caching is disabled. If you change the cache lifetime to something other than zero - then each unique collection request will be cached for the time you specify. For example - if you load the first page of a collection, it will be in the cache and if you flip through the pages and then back to the first page - it will be retrieved from the cache and you will save one request to Firestore that could have returned you N documents and you would have wasted N reads from the quota. If you apply filters - the current filtering configuration will also be saved in the cache, and if you use it again - the data will be retrieved from the cache.
+
+In turn, `FirebaseLocalCollectionApi` caches all collection documents at once (as it loads them all at once). The lifetime of the cache is equal to how soon you will basically make the next request to Firestore to retrieve the data of a particular collection. If your data doesn't change too often, it makes sense to set the cache lifetime as long as possible.
+
+However, keep in mind that caching is done in RAM (at least for now), which means that if you close your Nanc application - the next time you open it, there will be no cache and you will start wasting Firestore quota again.
+
+```dart
+FirebaseCollectionApi(api: firebaseApi, cacheTTL: const Duration(minutes: 5));
+FirebaseLocalCollectionApi(api: firebaseApi, cacheTTL: const Duration(minutes: 10));
+```

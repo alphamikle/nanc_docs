@@ -12,9 +12,9 @@ dependencies:
 
 A model is a representation of the data structure of your document. For example - you can have a table in a database storing users. In this case, to be able to manage the data in that table, you need to create a user model that reflects the fields that the documents in that table have. For example - name, age, gender and so on.
 
-Nanc imposes a certain restriction on models - each model must have at least one [IdField](../fields/id_field). And this field must be in `String` format. The ideal candidate for this identifier value is UUID, but you can use any other value (and, looking ahead, you'll use it for a couple of special models).
+Nanc imposes a certain restriction on models - each model must have at least one [IdField](./fields#id-field). And this field must be in `String` format. The ideal candidate for this identifier value is UUID, but you can use any other value (and, looking ahead, you'll use it for a couple of special models).
 
-Also, you can use regular incrementable identifiers at your database level as well, but at this point, the task of type conversion (from `String` to `int`) should be handled by you, at your backend or `ICollectionApi` and `IPageApi` level
+Also, you can use regular incrementable identifiers at your database level as well, but at this point, the task of type conversion (from `String` to `int`) should be handled by you, at your backend or `ICollectionApi` and `IDocumentApi` level
 
 ## Creating the model
 
@@ -82,7 +82,7 @@ Solo models are more highly specialized representatives of your data. They do no
 
 You can also create models using the interface. To do this, you need to go to the `Editor` section and click the `Create new model` button.
 
-![](/screenshots/create_new_model.png)
+![](../../static/screenshots/create_new_model.png)
 
 On this screen, you will see all the model parameters available to you for editing through code, as well as all the available fields you can add to the model.
 

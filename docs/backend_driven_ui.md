@@ -140,7 +140,8 @@ And here how it will looks like, if we want to put data in the mobile app:
 
 ```dart
 Widget build() {
-  return XmlWidgetsStack(
+  return NUIWidget(
+    type: NUIWidgetType.stack,
     renderers: const [],
     imageErrorBuilder: null,
     imageFrameBuilder: null,

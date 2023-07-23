@@ -27,9 +27,9 @@ final IconData? someIconOrNull = IconPack.fromName('some_missed_icon_name'); // 
 
 Also, in development mode, a separate screen will be available to you, which can be accessed by clicking on the Icons menu section:
 
-![Icons menu](/screenshots/icons_menu.png)
+![Icons menu](../../static/screenshots/icons_menu.png)
 
-![Icons modal](/screenshots/icons_modal.png)
+![Icons modal](../../static/screenshots/icons_modal.png)
 
 In this mode, you can click on the icon you like and its name will be copied to the clipboard. And the search box will allow you to filter the icons to find any of the ones you are interested in. This filter treats the entered value as a regular expression, which can be useful when searching.
 

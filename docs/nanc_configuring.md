@@ -19,7 +19,7 @@ Future<void> main() async {
     await adminRunner(
       CmsConfig(
         collectionApi: ICollectionApi(),
-        pageApi: IPageApi(),
+        documentApi: IDocumentApi(),
         modelApi: IModelApi(),
         networkConfig: NetworkConfig(
           paginationPageNumberParameterName: 'page',
@@ -46,9 +46,9 @@ Let's go through them one by one.
 
 This option is responsible for setting up an API service that will perform all network activities related to your document collections. Be it filtering, pagination, search, and more.
 
-## Page API
+## Document API
 
-The `pageApi` is responsible for installing an API service that will perform network requests related to individual documents - opening a detailed document page, creating, deleting, modifying, etc.
+The `documentApi` is responsible for installing an API service that will perform network requests related to individual documents - opening a detailed document page, creating, deleting, modifying, etc.
 
 ## Model API
 

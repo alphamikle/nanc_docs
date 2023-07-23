@@ -29,7 +29,7 @@ Future<void> main() async {
       CmsConfig(
         /// ? Your should implement these APIs or use already implemented instead
         collectionApi: LocalCollectionApi(),
-        pageApi: LocalPageApi(),
+        documentApi: LocalDocumentApi(),
         modelApi: LocalModelApi(),
         networkConfig: NetworkConfig(
           paginationPageNumberParameterName: 'page',
