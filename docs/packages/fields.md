@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Fields
 
 The **field** is one of the most important concepts of Nanc. Each field is responsible for storing one value in the document (string in SQL, Document in NoSQL, etc.). However, the field value can be either the simplest types, such as a string or a number, or complex ones - typed arrays, objects, or entire screens of a mobile application.
@@ -48,7 +52,7 @@ The field that stores the name of the icon, in the `String` format. You can choo
 
 The only required field for any **Model**. It is of type `String` and serves as a unique identifier for each document. A document can have multiple `Id fields`, however, the first one specified will be used as the unique identifier. The preferred value for this field is UUID, however you can use any value.
 
-## Multi Selector field
+## Multi selector field
 
 A field used to display one-to-many relationships between documents. A document that has this field specified can store links to other documents. These links will be the values of this field, however, the way of storing links by many (and ourselves) will be called "relational". The API of this field assumes that you have at least three collections (tables) in your database.
 

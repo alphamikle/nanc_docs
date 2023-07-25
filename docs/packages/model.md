@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Model
 
 ## Import
@@ -8,7 +12,7 @@ dependencies:
     path: ../nanc/model
 ```
 
-## What Model Is?
+## What the Model Is?
 
 A model is a representation of the data structure of your document. For example - you can have a table in a database storing users. In this case, to be able to manage the data in that table, you need to create a user model that reflects the fields that the documents in that table have. For example - name, age, gender and so on.
 
@@ -16,7 +20,7 @@ Nanc imposes a certain restriction on models - each model must have at least one
 
 Also, you can use regular incrementable identifiers at your database level as well, but at this point, the task of type conversion (from `String` to `int`) should be handled by you, at your backend or `ICollectionApi` and `IDocumentApi` level
 
-## Creating the model
+## Creating the Model
 
 ### Code-first approach
 
@@ -68,11 +72,11 @@ The `fields` - is responsible for the contents of the model. You have a large li
 
 The `isCollection` parameter determines whether the model is a representation of a collection of documents, or refers to a single document.
 
-#### Collection model
+#### Collection Model
 
 This is the standard type of model, if you know that the model you are creating will be responsible for some table (or its equivalent) in which many documents will be stored - this is definitely a model-collection.
 
-#### Solo model
+#### Solo Model
 
 Solo models are more highly specialized representatives of your data. They do not depend on how exactly you are going to store the document this model displays. A good example of a solo model would be, for example, a feature-flags document, which can have many parameters, but they all form one single entity. It can be a whole table in the database containing just one document, or a collection (from NoSQL) with one document. Or a single JSON-type document in a special NoSQL table / collection - how it will be implemented is up to you. The approach chosen in the existing API services is to create a separate table / NoSQL collection for each Solo-model and to have one single document in that table.
 

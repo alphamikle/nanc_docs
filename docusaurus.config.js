@@ -57,7 +57,7 @@ module.exports = {
       }], copyright: `Copyright © ${new Date().getFullYear()} Nanc Inc.`,
     }, prism: {
       theme: lightCodeTheme, darkTheme: darkCodeTheme,
-      additionalLanguages: ['dart', 'yaml', 'json5'],
+      additionalLanguages: ['dart', 'yaml', 'json5', 'sql'],
     },
   },
 };

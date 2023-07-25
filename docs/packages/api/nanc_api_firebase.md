@@ -1,6 +1,10 @@
-# Firebase API
+---
+sidebar_position: 2
+---
 
-:::danger
+# Firebase api
+
+:::caution
 Working with Firestore Database implies the use of a service account. This account will have full access to read and modify data in your database. Be very careful where you deploy your Nanc build - if third-party users can get into it - they will be able to find out and change your data. **Your security is on your shoulders.**
 :::
 
@@ -18,7 +22,7 @@ dependencies:
 
 ## Configuring
 
-### Creating Firebase Project
+### Creating Firebase project
 
 First, you need to create a Firebase project. If you want to use Nanc with an existing project, you can skip this section and [go to the key generation one](#get-firebase-service-key). Also, the official [documentation](https://pub.dev/packages/cloud_firestore) from Google will be the best instruction for actions. However, here we will show you the way to create a new Firebase project too.
 
@@ -50,7 +54,11 @@ Build Firestore Database
 ![](../../../static/screenshots/firebase_api/select_location.png)
 ![](../../../static/screenshots/firebase_api/database_created.png)
 
-## Get Firebase Service Key
+## Get Firebase service key
+
+:::info
+Any configuration parameter, be it a key, url or anything else, is used only inside the loop of your Nanc build and the service for which you are applying the configuration. We do not store or receive any of your data. At all.
+:::
 
 Go to the project settings
 
@@ -119,7 +127,7 @@ The `firebaseBase64EncodedKey` variable holds the Base64-encoded contents of the
 
 Also, you might have noticed that there are two `ICollectionApi` implementations declared in the code - `FirebaseCollectionApi` and `FirebaseLocalCollectionApi`. Let's dwell on their differences a bit more.
 
-## Backend-first Collection Api
+## Backend-first collection api
 
 `FirebaseCollectionApi` - is an implementation of working with collections through Firestore, which implies constant use of Firestore Database - any filtering, searching, pagination operations will be performed through a new call to the server. Also, the logic of data filtering and searching is implemented in full compliance with the capabilities of Firestore itself. And these capabilities are very limited. For example - you will not be able to find any document by partial coincidence of one of the fields of the document with the value you entered. Say - "find all movies whose title begins with the substring `Appo`". Also, filtering by multiple fields is very limited due to the architecture of Firestore itself, so with this API implementation you are limited in the complexity of filter combinations, and in addition, some filter variations will require you to create special Firestore indexes.
 
@@ -135,7 +143,7 @@ To reduce read quota usage, you can reduce the number of documents output per pa
 NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
 ```
 
-## Partially-local Collection Api
+## Partially-local collection api
 
 :::caution
 The first time any collection is queried, this API implementation will load the entire collection in its entirety. If you have large collections with more than 2-3 thousand documents, be very careful when using this API, as you may very quickly spend the free reading limits of Firestore, and if you use the paid version - it may lead to additional expenses.
@@ -157,3 +165,9 @@ However, keep in mind that caching is done in RAM (at least for now), which mean
 FirebaseCollectionApi(api: firebaseApi, cacheTTL: const Duration(minutes: 5));
 FirebaseLocalCollectionApi(api: firebaseApi, cacheTTL: const Duration(minutes: 10));
 ```
+
+## Deletion of models
+
+:::info
+Deleting a model does not delete the corresponding collection in Firestore at all. This behavior is specifically chosen to prevent accidental corruption of your data. If you want to implement this automatically as well - then you need to supplement the `FirebaseModelApi.deleteModel` method by implementing the required logic yourself.
+:::

@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Mobile App Configuring
+# Mobile app configuring
 
 All you need to start using the Nanc Backend Driven UI in your application is to import the `nanc_renderer` package from the Nanc mono repository, and use one of the two widgets it exports:
 - `XmlWidgetStack`

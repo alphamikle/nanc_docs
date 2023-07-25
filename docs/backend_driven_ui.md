@@ -2,9 +2,9 @@
 sidebar_position: 9
 ---
 
-# Backend Driven UI
+# Backend driven UI
 
-Nanc Backend Driven UI allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you relatively easily and do whatever you want.
+Nanc Backend Driven UI, called **NUI**, allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you relatively easily and do whatever you want.
 
 You have access to logical operators that hide or show interface elements, cycles, templating and variables - defined directly in the UI code and accessible from the outside - for example, the entire parent context of the document, one of the fields of which is `Screen Field`.
 
@@ -14,7 +14,7 @@ First you need to add the **Screen** field to your model. Depending on how it's 
 
 But we'll take a look at the approach to creating mobile application screens through the Nanc user interface.
 
-### Adding Screen Field
+### Adding Screen field
 
 <video src="/videos/adding_screen_field.mp4" controls width="100%"></video>
 
@@ -32,7 +32,7 @@ Widget build() {
     slivers: [
       SliverList(
         delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) => widgets[index],
+          (BuildContext context, int index) => widgets[index],
           childCount: widgets.length,
         ),
       ),
@@ -56,7 +56,7 @@ Widget build() {
 }
 ```
 
-### UI Syntax
+### UI syntax
 
 The syntax chosen is XML/HTML, with some simplifications and modifications (not many).
 
@@ -249,7 +249,7 @@ As mentioned above - Nanc has built-in interactive documentation for each widget
 
 <video src="/videos/screen_field_help.mp4" controls width="100%"></video>
 
-### IDE Sync
+### IDE sync
 
 At the moment, the built-in code editor in Nanc is, frankly, crappy. In addition, if you are a developer, it will be much more convenient for you to develop a new screen or component in Nanc in your favorite and cozy IDE. That's why Nanc supports this feature - you can sync Nanc's screen editor with any file on your file system. It doesn't matter if Nanc is running in your browser, deployed somewhere, or if you run it locally under a desktop platform (Mac / Windows / Linux). But, don't forget - to have this ability in web-environment, you should [install](./nanc_configuring#web-app-configuration) additional thing too.
 

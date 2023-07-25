@@ -8,6 +8,17 @@ Nanc - CMS of new generation. Extensible, adaptable and powerful. You can use it
 
 Nanc allows you to manage data and content of any complexity, and provides an incredibly powerful mechanism for updating the interface and logic of your Flutter applications in real time, based on a Backend Driven UI approach pumped up to 999lvl and called NUI. Have you wanted to be able to update your application as if it were a web service? You've got it.
 
+## For which purposes Nanc is better suited
+
+- You want a data and content management system in your existing project
+- You are creating a new project based on Firebase, Supabase or other cloud data and logic storage, and you want to manage content and data in them more flexibly and easily than using native UIs
+- You want a content management system, but don't want to use cumbersome Open Source "admin panels" or write everything from scratch for "a lot of money"
+- You use Firebase as a backend, and you don't have enough functionality in its UI to make sense of your data
+- You are building or have an existing Flutter application, and you want to accelerate the speed of delivery of features to production
+- You are building or have a Flutter application and want to be able to test different hypotheses in it **very quickly**
+- You create or have a Flutter application and want to update it without long and unpredictable reviews by storers
+- You create or have a Flutter application and want to be able to change any aspect of its look and feel in an instant, spending a few minutes of development time instead of hours, days or weeks
+
 ## Fast start
 
 ### Clone Nanc repo
@@ -80,7 +91,7 @@ Future<void> main() async {
   }, ErrorsCatcher.catchZoneErrors);
 }
 ```
-### Select API
+### Select api
 
 On that stage, you should decide - which APIs you will use to connect to your data. For now already implemented several APIs:
 
@@ -95,7 +106,7 @@ Completely ready solution for working with Supabase. It supports all features fo
 #### [Firebase API](./packages/api/nanc_api_firebase)
 Completely ready solution for working with Firebase. Makes it easy to get started with Nanc, using as a data provider...Firebase!
 
-### Add ${your_choice}_api
+### Add chosen api
 
 ```yaml
 dependencies:
@@ -103,7 +114,7 @@ dependencies:
     path: ../nanc/nanc_api_local
 ```
 
-### Use API
+### Use api
 
 After you installed some API (like `nanc_local_api`) you should add it to the `CmsConfig` at the `main.dart` file:
 
