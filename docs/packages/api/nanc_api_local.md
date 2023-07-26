@@ -41,7 +41,7 @@ Future<void> main() async {
         adminWrapperBuilder: null,
         predefinedModels: [],
         customRenderers: [],
-        clickHandlers: [],
+        eventsHandlers: [],
         customFonts: [],
       ),
     );

@@ -189,9 +189,7 @@ Currently implemented quite a large list of standard widgets that you can use to
 
 ### Logic
 
-Currently, processing of one method of user interaction - single click - has been implemented. In order to start processing tap on elements, you need to wrap the widget (tag) required for interaction in the `<inkWell>` tag. Then, you need to add the `onPressed` parameter to the `inkWell` tag, specifying the value of this parameter - a string of any kind.
-
-For example:
+Nanc supports many ways to achieve interactivity - handling custom clicks/taps, long presses, gestures, creating and destroying widgets on the screen. You can come up with your own and implement them. In any case, the event you can catch and handle is a simple string that will be passed to the event handler when some action happens (click, long tap, widget appears, etc). In this example, we will understand the handling of an event that occurs when a user clicks on a screen element:
 
 ```html
 <inkWell onPressed="addToCart:{{ page.product_id }}">
@@ -207,13 +205,13 @@ For example:
 
 The value of the `onPressed` parameter - within the framework of Nanc concepts, is called an event. Event can be any string, and you can assign handlers for any events. Say, you can make a handler for events starting with the string `addToCart:`.
 
-The event handler is a special `ClickHandler` class that you can import from the [config](./packages/config) package.
+The event handler is a special `EventHandler` class that you can import from the [config](./packages/config) package.
 
-Having implemented the required `ClickHandler`s - you must implement them in your widget tree via another widget called `ClickDelegate`, which you can import from the `nanc_renderer` package - the package required for your mobile application that is going to render the Nanc Backend Driven UI:
+Having implemented the required `EventHandler`s - you must implement them in your widget tree via another widget called `EventDelegate`, which you can import from the `nanc_renderer` package - the package required for your mobile application that is going to render the **NUI**:
 
 ```dart
 Widget build() {
-  return ClickDelegate(
+  return EventDelegate(
     handlers: [
       browserLinksHandler,
       snackbarHandler,
@@ -227,7 +225,7 @@ Widget build() {
 }
 ```
 
-If you approach the design of click handlers with foresight, you can implement very complex user scenarios, say - by implementing an event handling queue:
+If you approach the design of events handlers with foresight, you can implement very complex user scenarios, say - by implementing an event handling queue:
 
 ```html
 <inkWell onPressed="addToCart:12345 > showNotification:'You successfully added product to your cart!' > somethingElse">
@@ -236,6 +234,10 @@ If you approach the design of click handlers with foresight, you can implement v
 ```
 
 You are free to determine how you label events, what they will be, and what you can do with them.
+
+:::tip
+Also, you may want to consider just specifying an identifier as the event, the corresponding handler will take that identifier, go to the backend, and get all the necessary arguments from that identifier that you would otherwise have to specify in the event itself.
+:::
 
 ### Help
 

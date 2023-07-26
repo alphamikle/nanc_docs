@@ -84,7 +84,7 @@ Future<void> main() async {
           /// ? Here will be a list of your predefined code-first models
         ],
         customRenderers: [],
-        clickHandlers: [],
+        eventsHandlers: [],
         customFonts: [],
       ),
     );
@@ -148,7 +148,7 @@ Future<void> main() async {
           /// ? Here will be a list of your predefined code-first models
         ],
         customRenderers: [],
-        clickHandlers: [],
+        eventsHandlers: [],
         customFonts: [],
       ),
     );

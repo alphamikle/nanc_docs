@@ -32,7 +32,7 @@ Future<void> main() async {
         adminWrapperBuilder: null,
         predefinedModels: [],
         customRenderers: [],
-        clickHandlers: [],
+        eventsHandlers: [],
         customFonts: [],
       ),
     );
@@ -114,9 +114,14 @@ The `adminWrapperBuilder` is a special builder-method that allows you to wrap th
 
 `customRenderers` - a setting responsible for extending the Nanc functionality related to rendering widgets in the Backend Driven UI. By implementing and adding a new renderer you will be able to use it at any time in your application using Nanc Backend Driven UI. You can learn more about this in this section: [Backend Driven UI](./backend_driven_ui).
 
-## Click handlers
+## Events handlers
 
-`clickHandlers` - parameter responsible for extending the logic that you will be able to control through the Nanc Backend Driven UI. The current model is event-based. An event is a string that can contain anything. From a simple name, to a JSON structure, to a link, to anything. The `ClickHandler` is responsible for handling a certain class of events, for example - all events starting with the keyword `deeplink`. Or all events that contain a value corresponding to some `RegExp` pattern. How exactly the event handling will be implemented is entirely your responsibility, and your opportunity. By intelligently separating the possible events in your application into classes, you can reach a state where you can modify and create very complex user scenarios, and all this will be available to your users in real time. Read more about this in [Backend Driven UI](./backend_driven_ui) section.
+`eventsHandlers` - parameter responsible for extending the logic that you will be able to control through the Nanc Backend Driven UI. The current model is event-based. An event is a string that can contain anything. From a simple name, to a JSON structure, a link, or anything. The `EventHandler` is responsible for handling a certain class of events, for example - all events starting with the keyword `deeplink`. Or all events that contain a value corresponding to some `RegExp` pattern. How exactly the event handling will be implemented is entirely your responsibility, and your opportunity. By intelligently separating the possible events in your application into classes, you can reach a state where you can modify and create very complex user scenarios, and all this will be available to your users in real time. Read more about this in [Backend Driven UI](./backend_driven_ui) section.
+
+:::tip
+Also, you may want to consider just specifying an identifier as the event, the corresponding handler will take that identifier, go to the backend, and get all the necessary arguments from that identifier that you would otherwise have to specify in the event itself.
+:::
+
 
 ## Custom fonts
 
