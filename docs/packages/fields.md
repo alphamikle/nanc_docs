@@ -68,7 +68,7 @@ A field that stores a numeric value. The data type is `num` (can be either `int`
 
 ## Screen field
 
-The field responsible for creating the interface of a mobile application written in Flutter. The data type is `String`. This line can be quite large, so be careful about the limits you place on the size of this field in your document. The value of this field can be of two types - `Scrollable` and `Stack`. This field and Nanc's ability to create interfaces will be discussed in more detail in the chapter on [Backend Driven UI](../backend_driven_ui).
+The field responsible for creating the interface of a mobile application written in Flutter. The data type is `String`. This line can be quite large, so be careful about the limits you place on the size of this field in your document. The value of this field can be of two types - `Scrollable` and `Stack`. This field and Nanc's ability to create interfaces will be discussed in more detail in the chapter on [Backend Driven UI](../nui/backend_driven_ui.md).
 
 ## Selector field
 
