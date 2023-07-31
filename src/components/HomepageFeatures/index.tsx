@@ -10,32 +10,34 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Created by professionals',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Nanc is built by developers, content managers
+        and product owners with deep experience in building products
+        that need to change content and do it often.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Very fast start',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        You can get a complete CMS for your existing project can be in minutes or hours.
+        And you won't have to rewrite anything, or adjust to Nanc.
+        Nanc - will adjust to your project.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Incredible power',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Nanc gives you access to one of the most powerful toolkit for building applications in the Backend Driven UI paradigm.
+        You'll be able to change any aspect of your mobile app on the fly - without republishing to the Stores, in the blink of an eye.
       </>
     ),
   },
