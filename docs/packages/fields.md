@@ -64,7 +64,15 @@ A field used to display one-to-many relationships between documents. A document 
 
 ## Number field
 
-A field that stores a numeric value. The data type is `num` (can be either `int` or `double`).
+A field that stores a numeric value. This field supports a significant number of number types in both signed and unsigned formats:
+- `bit`
+- `int2`
+- `int4`
+- `bigint`
+- `float4`
+- `float8`
+
+There is also an automatic validation for leaving the boundaries of the used type and a sign check.
 
 ## Screen field
 
