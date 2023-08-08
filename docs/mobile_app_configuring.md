@@ -84,8 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: NUIWidget(
-          type: NUIWidgetType.stack,
+        child: NuiStackWidget(
           renderers: const [],
           imageErrorBuilder: null,
           imageFrameBuilder: null,
