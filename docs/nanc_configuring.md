@@ -34,6 +34,8 @@ Future<void> main() async {
         customRenderers: [],
         eventsHandlers: [],
         customFonts: [],
+        sliverChecker: null,
+        customIcons: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
@@ -125,7 +127,15 @@ Also, you may want to consider just specifying an identifier as the event, the c
 
 ## Custom fonts
 
-`customFonts` - an option to expand the available fonts in the Nanc Backend Driven UI. You can add any custom font to your Nanc application (official instructions), then, specify the parameters of the added font in this parameter, which accepts a list of font extensions, and voila - in your Nanc build, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the [Nanc Backend Driven UI](nui/backend_driven_ui.md).
+`customFonts` - an option to expand the available fonts in the Nanc Backend Driven UI. You can add any custom font to your Nanc application (official instructions), then, specify the parameters of the added font in this parameter, which accepts a list of font extensions, and voila - in your Nanc build, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the [Nanc Backend Driven UI](nui/backend_driven_ui).
+
+## Sliver checker
+
+If you are going to add custom widget slivers implemented by you. You also need to add a function that will check if the widget is a sliver. And for your custom sliver - it should return `true`. In general - for all your custom widgets. See more [here](./nui/slivers).
+
+## Custom icons
+
+You can easily add your own custom icons to Nanc. For this purpose it is enough to pass `Map<String, IconData>` as an argument to `customIcons`. Configuring a mobile application using NUI is described in detail [here](./mobile_app_configuring).
 
 ## Web app configuration
 
