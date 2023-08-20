@@ -12,22 +12,19 @@ import 'dart:async';
 import 'package:cms/cms.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
+import 'package:nanc_api_local/nanc_api_local.dart';
 
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+
     await adminRunner(
       CmsConfig(
-        collectionApi: ICollectionApi(),
-        documentApi: IDocumentApi(),
-        modelApi: IModelApi(),
-        networkConfig: NetworkConfig(
-          paginationPageNumberParameterName: 'page',
-          paginationLimitParameterName: 'limit',
-          paginationDataContainerParameterName: 'data',
-          paginationTotalPagesParameterName: 'total_pages',
-          paginationLimitParameterDefaultValue: 100,
-        ),
+        /// ? Use them here
+        collectionApi: LocalCollectionApi(),
+        documentApi: LocalDocumentApi(),
+        modelApi: LocalModelApi(),
+        networkConfig: NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
         predefinedModels: [],
@@ -36,6 +33,7 @@ Future<void> main() async {
         customFonts: [],
         sliverChecker: null,
         customIcons: null,
+        themeBuilder: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
@@ -136,6 +134,10 @@ If you are going to add custom widget slivers implemented by you. You also need 
 ## Custom icons
 
 You can easily add your own custom icons to Nanc. For this purpose it is enough to pass `Map<String, IconData>` as an argument to `customIcons`. Configuring a mobile application using NUI is described in detail [here](./mobile_app_configuring).
+
+## Preview theming
+
+In order to be able to recreate your mobile app design in Nanc using [NUI](./nui/backend_driven_ui), you can use the theme from your mobile app. This way you will see in NUI pixel-perfect preview a result similar to what you will see in your mobile application when developing components / screens using [NUI](./nui/backend_driven_ui).
 
 ## Web app configuration
 
