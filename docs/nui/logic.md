@@ -90,3 +90,21 @@ In this case, the keys can also be compound keys:
   }
 }
 ```
+
+## Calculations
+
+You can use math operators in calculated expressions in your NUI code. For example, you can use the following form to specify the `ratio` parameter of the `<aspectRatio>` widget/tag:
+
+```html
+<aspectRatio ratio="{{ 4 / 3 }}">
+  <!-- Some child -->
+</aspectRatio>
+```
+
+All of the features currently available are well described in this package: [https://pub.dev/packages/eval_ex](https://pub.dev/packages/eval_ex)
+
+In addition, there are several aliases that may also be useful to you:
+- `&&` has the alias `and`.
+- `||` has the alias `or`
+
+Additional features that will emerge over time will be reflected in this section.

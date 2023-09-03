@@ -78,6 +78,38 @@ There is also an automatic validation for leaving the boundaries of the used typ
 
 The field responsible for creating the interface of a mobile application written in Flutter. The data type is `String`. This line can be quite large, so be careful about the limits you place on the size of this field in your document. The value of this field can be of two types - `Scrollable` and `Stack`. This field and Nanc's ability to create interfaces will be discussed in more detail in the chapter on [Backend Driven UI](../nui/backend_driven_ui.md).
 
+### Compilation of NUI-code
+
+Screen Field has an additional parameter `Binary Data Field ID`. You can specify it, thus extending the structure of your document.
+For example, before specifying this parameter, your model had, simplistically, the following structure:
+
+```json
+{
+  "id": "<uuid>",
+  "ui": "<jsonb>"
+}
+```
+
+Now specify a parameter with the value `ui_bin`, and you get the following structure:
+
+```json
+{
+  "id": "<uuid>",
+  "ui": "<jsonb>",
+  "ui_bin": "<bytes>"
+}
+```
+
+I will draw your attention to the fact that the actual form of this structure will differ depending on the API-implementation used - for Supabase an additional column with the type `bytea` will be created, and in Firebase there will simply be support for this field.
+
+Now to the details - what is this field? It allows you to store "compiled" UI code in raw binary form, maximally optimized for use in the application. It's worth noting that the conversion is done only over the UI code, but not over the screen type (`Scrollable` / `Stack`).
+
+What is the purpose of this field in the first place? If you have a large and complex screen created entirely with NUI, the time to parse it in the application can take more than `8ms, which in turn can cause hangs when rendering such screens. The rendering of the interface from the binary format, on the other hand, is significantly faster (we are talking about several tens or even hundreds of times). Therefore, if you want to further optimize the performance of complex screens created with NUI, it makes sense to use this code format.
+
+At the same time, this optimized format is an addition to the usual XML-based format, and is stored in a separate column (or field of the document).
+
+And lastly - all you need to do to get compiled UI code is to specify the value of this parameter for the `ScreenField` field to any unique (within the document structure) value other than an empty string. Then - when you edit your UI code in any way, if it is correct (all UI code is correct in terms of XML syntax) a binary twin will be automatically created and saved in an additional field in your document.
+
 ## Selector field
 
 A field that is also responsible for links between documents. But in this case it is a one-to-one or many-to-one relationship. In order for you could use this field, you must have at least two collections (tables):
