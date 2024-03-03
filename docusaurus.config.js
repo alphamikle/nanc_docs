@@ -1,10 +1,10 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require('prism-react-renderer/themes/vsLight');
+const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
 module.exports = {
   title: 'Nanc',
   tagline: 'Next gen CMS from the Future',
-  favicon: 'favicon.ico',
+  favicon: 'favicon.svg',
   url: 'https://nanc.io',
   baseUrl: '/',
   organizationName: 'Nanc Inc.',
@@ -37,8 +37,8 @@ module.exports = {
       title: 'Nanc',
       logo: {
         alt: 'Logo',
-        src: 'img/logo_light.png',
-        srcDark: 'img/logo.png'
+        src: 'img/logo_light.svg',
+        srcDark: 'img/logo.svg'
       },
       items: [
         {
@@ -47,11 +47,11 @@ module.exports = {
           position: 'left',
           label: 'Docs',
         },
-        {
-          to: '/blog',
-          label: 'Blog',
-          position: 'left',
-        },
+        // {
+        //   to: '/blog',
+        //   label: 'Blog',
+        //   position: 'left',
+        // },
         {
           href: 'https://github.com/alphamikle/nanc',
           label: 'GitHub',
@@ -91,10 +91,6 @@ module.exports = {
         // {
         //   title: 'More',
         //   items: [
-        //     {
-        //       label: 'Blog',
-        //       to: '/blog',
-        //     },
         //     {
         //       label: 'GitHub',
         //       href: 'https://github.com/facebook/docusaurus',

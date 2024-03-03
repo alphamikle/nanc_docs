@@ -2,52 +2,85 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
+type BorderRadiusProps = {
+  leftTop?: string;
+  rightTop?: string;
+  rightBottom?: string;
+  leftBottom?: string;
+  all?: string;
+};
+
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  img: string;
   description: JSX.Element;
+  radius: BorderRadiusProps;
 };
+
+function generateRadius({ leftTop, rightTop, rightBottom, leftBottom, all }: BorderRadiusProps): React.CSSProperties {
+  return {
+    borderTopLeftRadius: leftTop ?? all ?? '0px',
+    borderTopRightRadius: rightTop ?? all ?? '0px',
+    borderBottomRightRadius: rightBottom ?? all ?? '0px',
+    borderBottomLeftRadius: leftBottom ?? all ?? '0px',
+  };
+}
+
+const def = '75px';
+const rad = '150px';
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Created by professionals',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    img: '/img/feature_1.webp',
     description: (
       <>
-        Nanc is built by developers, content managers
-        and product owners with deep experience in building products
-        that need to change content and do it often.
+        Nanc: Expert-designed CMS for effortless, rapid content updates.
       </>
     ),
+    radius: {
+      all: rad,
+      rightTop: def,
+      rightBottom: def,
+    },
   },
   {
-    title: 'Very fast start',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Fast start',
+    img: '/img/feature_2.webp',
     description: (
       <>
-        You can get a complete CMS for your existing project can be in minutes or hours.
-        And you won't have to rewrite anything, or adjust to Nanc.
-        Nanc - will adjust to your project.
+        Nanc CMS integrates seamlessly, adapting to your project without rewrites.
       </>
     ),
+    radius: {
+      all: rad,
+      leftTop: def,
+      leftBottom: def,
+    },
   },
   {
     title: 'Incredible power',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    img: '/img/feature_3.webp',
     description: (
       <>
-        Nanc gives you access to one of the most powerful toolkit for building applications in the Backend Driven UI paradigm.
-        You'll be able to change any aspect of your mobile app on the fly - without republishing to the Stores, in the blink of an eye.
+        Nanc offers instant app updates without republishing, powered by a robust toolkit.
       </>
     ),
+    radius: {
+      all: rad,
+      leftBottom: def,
+      rightBottom: def,
+    },
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, img, description, radius}: FeatureItem) {
+  const radiusStyle = generateRadius(radius);
+
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img src={img} alt="feature" style={{...radiusStyle, marginBottom: '10px'}} height="200px"/>
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
