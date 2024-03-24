@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# CMS
+# Nanc
 
 The Nanc kernel, which gives you a method to run the CMS, as well as a service to catch errors.
 
@@ -10,8 +10,8 @@ The Nanc kernel, which gives you a method to run the CMS, as well as a service t
 
 ```yaml
 dependencies:
-  cms:
-    path: ../nanc/cms
+  nanc:
+    path: ../nanc/nanc
 ```
 
 ## Using

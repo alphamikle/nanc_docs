@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Fields
+# Nanc fields
 
 The **field** is one of the most important concepts of Nanc. Each field is responsible for storing one value in the document (string in SQL, Document in NoSQL, etc.). However, the field value can be either the simplest types, such as a string or a number, or complex ones - typed arrays, objects, or entire screens of a mobile application.
 
@@ -10,8 +10,8 @@ The **field** is one of the most important concepts of Nanc. Each field is respo
 
 ```yaml
 dependencies:
-  fields:
-    path: ../nanc/fields
+  nanc_fields:
+    path: ../nanc/nanc_fields
 ```
 
 Below is a list of fields available for use in Nanc:

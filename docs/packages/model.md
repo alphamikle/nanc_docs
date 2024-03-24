@@ -16,7 +16,7 @@ dependencies:
 
 A model is a representation of the data structure of your document. For example - you can have a table in a database storing users. In this case, to be able to manage the data in that table, you need to create a user model that reflects the fields that the documents in that table have. For example - name, age, gender and so on.
 
-Nanc imposes a certain restriction on models - each model must have at least one [IdField](./fields#id-field). And this field must be in `String` format. The ideal candidate for this identifier value is UUID, but you can use any other value (and, looking ahead, you'll use it for a couple of special models).
+Nanc imposes a certain restriction on models - each model must have at least one [IdField](./nanc_fields#id-field). And this field must be in `String` format. The ideal candidate for this identifier value is UUID, but you can use any other value (and, looking ahead, you'll use it for a couple of special models).
 
 Also, you can use regular incrementable identifiers at your database level as well, but at this point, the task of type conversion (from `String` to `int`) should be handled by you, at your backend or `ICollectionApi` and `IDocumentApi` level
 
@@ -28,7 +28,7 @@ Let's see on pretty simple model of a user:
 
 ```dart
 import 'package:config/config.dart';
-import 'package:fields/fields.dart';
+import 'package:nanc_fields/nanc_fields.dart';
 import 'package:icons/icons.dart';
 import 'package:model/model.dart';
 
@@ -54,7 +54,7 @@ final Model supaUser = Model(
 As you can see from this example, to describe the model, you first need to import some additional Nanc packages:
 
 - [Config](./config)
-- [Fields](./fields)
+- [Fields](./nanc_fields)
 - [Icons](./icons)
 - [Model](./model)
 
@@ -68,7 +68,7 @@ The `icon` is the string name of the icon that will be displayed in the Nanc int
 
 You can also preview all available icons, search through them to select the appropriate one. And how to do this - you can learn in the section devoted to the package [Icons](./icons).
 
-The `fields` - is responsible for the contents of the model. You have a large list of fields available that you can use to describe your data structures. See the [Fields](./fields) section for more information.
+The `fields` - is responsible for the contents of the model. You have a large list of fields available that you can use to describe your data structures. See the [Fields](./nanc_fields) section for more information.
 
 The `isCollection` parameter determines whether the model is a representation of a collection of documents, or refers to a single document.
 

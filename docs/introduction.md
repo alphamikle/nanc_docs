@@ -45,8 +45,8 @@ Third step - install two critical dependencies into your created app:
 
 ```yaml
 dependencies:
-  cms:
-    path: ../nanc/cms
+  nanc:
+    path: ../nanc/nanc
   config:
     path: ../nanc/config
 ```

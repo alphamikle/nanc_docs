@@ -10,6 +10,6 @@ This package may come in handy if you decide to extend Nanc with your own fonts.
 
 ```yaml
 dependencies:
-  fields:
-    path: ../nanc/fields
+  nanc_fields:
+    path: ../nanc/nanc_fields
 ```
