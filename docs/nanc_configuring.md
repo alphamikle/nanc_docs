@@ -100,7 +100,7 @@ This option allows you to set basic network settings:
 
 ## Image builder delegate
 
-The `imageBuilderDelegate` gives you the ability to customize the rendering behavior of the images you can display with the Nanc Backend Driven UI. You can implement your own preloader, show BlurHash or do whatever you see fit.
+The `imageBuilderDelegate` gives you the ability to customize the rendering behavior of the images you can display with the Nanc Server driven UI. You can implement your own preloader, show BlurHash or do whatever you see fit.
 
 ## Admin wrapper builder
 
@@ -112,11 +112,11 @@ The `adminWrapperBuilder` is a special builder-method that allows you to wrap th
 
 ## Custom renderers
 
-`customRenderers` - a setting responsible for extending the Nanc functionality related to rendering widgets in the Backend Driven UI. By implementing and adding a new renderer you will be able to use it at any time in your application using Nanc Backend Driven UI. You can learn more about this in this section: [Backend Driven UI](nui/backend_driven_ui.md).
+`customRenderers` - a setting responsible for extending the Nanc functionality related to rendering widgets in the Server driven UI. By implementing and adding a new renderer you will be able to use it at any time in your application using Nanc Server driven UI. You can learn more about this in this section: [Server driven UI](nui/backend_driven_ui.md).
 
 ## Events handlers
 
-`eventsHandlers` - parameter responsible for extending the logic that you will be able to control through the Nanc Backend Driven UI. The current model is event-based. An event is a string that can contain anything. From a simple name, to a JSON structure, a link, or anything. The `EventHandler` is responsible for handling a certain class of events, for example - all events starting with the keyword `deeplink`. Or all events that contain a value corresponding to some `RegExp` pattern. How exactly the event handling will be implemented is entirely your responsibility, and your opportunity. By intelligently separating the possible events in your application into classes, you can reach a state where you can modify and create very complex user scenarios, and all this will be available to your users in real time. Read more about this in [Backend Driven UI](nui/backend_driven_ui.md) section.
+`eventsHandlers` - parameter responsible for extending the logic that you will be able to control through the Nanc Server driven UI. The current model is event-based. An event is a string that can contain anything. From a simple name, to a JSON structure, a link, or anything. The `EventHandler` is responsible for handling a certain class of events, for example - all events starting with the keyword `deeplink`. Or all events that contain a value corresponding to some `RegExp` pattern. How exactly the event handling will be implemented is entirely your responsibility, and your opportunity. By intelligently separating the possible events in your application into classes, you can reach a state where you can modify and create very complex user scenarios, and all this will be available to your users in real time. Read more about this in [Server driven UI](nui/backend_driven_ui.md) section.
 
 :::tip
 Also, you may want to consider just specifying an identifier as the event, the corresponding handler will take that identifier, go to the backend, and get all the necessary arguments from that identifier that you would otherwise have to specify in the event itself.
@@ -125,7 +125,7 @@ Also, you may want to consider just specifying an identifier as the event, the c
 
 ## Custom fonts
 
-`customFonts` - an option to expand the available fonts in the Nanc Backend Driven UI. You can add any custom font to your Nanc application (official instructions), then, specify the parameters of the added font in this parameter, which accepts a list of font extensions, and voila - in your Nanc build, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the [Nanc Backend Driven UI](nui/backend_driven_ui).
+`customFonts` - an option to expand the available fonts in the Nanc Server driven UI. You can add any custom font to your Nanc application (official instructions), then, specify the parameters of the added font in this parameter, which accepts a list of font extensions, and voila - in your Nanc build, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the [Nanc Server driven UI](nui/backend_driven_ui).
 
 ## Sliver checker
 
@@ -154,7 +154,7 @@ For the Nanc-IDE synchronization functionality to work correctly in a web enviro
 
 And copy the corresponding file `nanc/file_syncer/file_system_library.js` to the same path: `path_to_your_nanc_project/web/file_system_library.js`
 
-> You can learn more about synchronization with the IDE in the Backend Driven UI section.
+> You can learn more about synchronization with the IDE in the Server driven UI section.
 
 ## Mobile app configuration
 

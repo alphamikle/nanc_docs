@@ -1,21 +1,21 @@
-.col {
+.cl {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-.col-center {
+.cl-cnt {
     justify-content: center;
 }
 
-.logo-name {
+.lg-name {
     height: 150px;
     margin-bottom: 15px;
     filter: drop-shadow(0 0 5px #C3E3E6);
 }
 
-.logo-name-light {
+.lg-name-light {
     height: 150px;
     margin-bottom: 15px;
     filter: drop-shadow(0 0 5px #081525);

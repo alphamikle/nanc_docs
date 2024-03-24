@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Nanc - CMS of new generation. Extensible, adaptable and powerful. You can use it with **your existing backend** (wrote by your hands) or with existed Firebase / Supabase / **any other kind project**, managing your content / data / applications from one place or you can start your new creation using Nanc as a management tool in combination with **any kind of data provider** - any cloud or custom backend in the ordinary sense of the word.
 
-Nanc allows you to manage data and content of any complexity, and provides an incredibly powerful mechanism for updating the interface and logic of your Flutter applications in real time, based on a Backend Driven UI approach pumped up to 999lvl and called NUI. Have you wanted to be able to update your application as if it were a web service? You've got it.
+Nanc allows you to manage data and content of any complexity, and provides an incredibly powerful mechanism for updating the interface and logic of your Flutter applications in real time, based on a Server driven UI approach pumped up to 999lvl and called NUI. Have you wanted to be able to update your application as if it were a web service? You've got it.
 
 ## For which purposes Nanc is better suited
 

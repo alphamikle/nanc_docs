@@ -13,8 +13,8 @@ function HomepageHeader() {
   const isDark = colorMode === 'dark';
 
   return (
-    <div className="col col-center">
-      <img src={ isDark ? '/img/name.svg' : '/img/name_light.svg' } alt="Nanc" className={isDark ? 'logo-name' : 'logo-name-light'}/>
+    <div className="cl cl-cnt">
+      <img src={ isDark ? '/img/name.svg' : '/img/name_light.svg' } alt="Nanc" className={isDark ? 'lg-name' : 'lg-name-light'}/>
       <p className="hero__subtitle">{siteConfig.tagline}</p>
       <div className={styles.buttons}>
         <Link
@@ -36,7 +36,7 @@ export default function Home(): JSX.Element {
         <main>
           <HomepageFeatures/>
         </main>
-        <div className="col"></div>
+        <div className="cl"></div>
       </div>
     </Layout>
   );

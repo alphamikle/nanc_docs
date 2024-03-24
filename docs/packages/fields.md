@@ -76,7 +76,7 @@ There is also an automatic validation for leaving the boundaries of the used typ
 
 ## Screen field
 
-The field responsible for creating the interface of a mobile application written in Flutter. The data type is `String`. This line can be quite large, so be careful about the limits you place on the size of this field in your document. The value of this field can be of two types - `Scrollable` and `Stack`. This field and Nanc's ability to create interfaces will be discussed in more detail in the chapter on [Backend Driven UI](../nui/backend_driven_ui.md).
+The field responsible for creating the interface of a mobile application written in Flutter. The data type is `String`. This line can be quite large, so be careful about the limits you place on the size of this field in your document. The value of this field can be of two types - `Scrollable` and `Stack`. This field and Nanc's ability to create interfaces will be discussed in more detail in the chapter on [Server driven UI](../nui/backend_driven_ui.md).
 
 ### Compilation of NUI-code
 

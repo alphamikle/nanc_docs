@@ -28,12 +28,12 @@ If you know for sure that your widget can only contain and process text located 
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  NANC, the content management system,
+  Nanc, the content management system,
   A tool that's easy to use,
   With features that stand out from the rest,
-  NANC helps businesses grow and thrive,
+  Nanc helps businesses grow and thrive,
   Managing content with style and finesse,
-  NANC, the CMS we can't resist.
+  Nanc, the CMS we can't resist.
 </text>
 ```
 
@@ -56,24 +56,24 @@ Let's start with the first one. Let's assume that we have typed the following UI
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  NANC, the content management system,
+  Nanc, the content management system,
   A tool that's easy to use,
   With features that stand out from the rest,
-  NANC helps businesses grow and thrive,
+  Nanc helps businesses grow and thrive,
   Managing content with style and finesse,
-  NANC, the CMS we can't resist.
+  Nanc, the CMS we can't resist.
 </text>
 ```
 
 By default, this text will be formatted so that the indentation on the left of each line is removed and the lines will run as they do in the text, one after the other:
 
 ```text.
-NANC, the content management system,
+Nanc, the content management system,
 A tool that's easy to use,
 With features that stand out from the rest,
-NANC helps businesses grow and thrive,
+Nanc helps businesses grow and thrive,
 Managing content with style and finesse,
-NANC, the CMS we can't resist.
+Nanc, the CMS we can't resist.
 ```
 
 If you want to indent paragraphs, the `\` symbol will help:
@@ -81,30 +81,30 @@ If you want to indent paragraphs, the `\` symbol will help:
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  \  NANC, the content management system,
+  \  Nanc, the content management system,
   A tool that's easy to use,
   With features that stand out from the rest,
-  NANC helps businesses grow and thrive,
+  Nanc helps businesses grow and thrive,
   Managing content with style and finesse,
-  NANC, the CMS we can't resist.
+  Nanc, the CMS we can't resist.
 </text>
 ```
 
 This will produce the following result:
 
 ```text
-  NANC, the content management system,
+  Nanc, the content management system,
 A tool that's easy to use,
 With features that stand out from the rest,
-NANC helps businesses grow and thrive,
+Nanc helps businesses grow and thrive,
 Managing content with style and finesse,
-NANC, the CMS we can't resist.
+Nanc, the CMS we can't resist.
 ```
 
 Finally, if you want the text to be a single line rather than line-by-line, even though you wrote it in the image of the example, just set the `separator` parameter equal to, for example, a space - ` `, and we get the following result:
 
 ```text
-  NANC, the content management system, A tool that's easy to use, With features that stand out from the rest, NANC helps businesses grow and thrive, Managing content with style and finesse, NANC, the CMS we can't resist.
+  Nanc, the content management system, A tool that's easy to use, With features that stand out from the rest, Nanc helps businesses grow and thrive, Managing content with style and finesse, Nanc, the CMS we can't resist.
 ```
 
 And the last thing is empty strings. If you want to stylistically divide the text into paragraphs, you probably use blank lines to do this, for example like this:
@@ -112,28 +112,28 @@ And the last thing is empty strings. If you want to stylistically divide the tex
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  \  NANC, the content management system,
+  \  Nanc, the content management system,
   A tool that's easy to use,
   
   With features that stand out from the rest,
-  NANC helps businesses grow and thrive,
+  Nanc helps businesses grow and thrive,
   
   Managing content with style and finesse,
-  NANC, the CMS we can't resist.
+  Nanc, the CMS we can't resist.
 </text>
 ```
 
 By default such empty lines are discarded, if you want to keep them, set the `skipEmptyLines` parameter to `true` and the result is the following text:
 
 ```text
-  NANC, the content management system,
+  Nanc, the content management system,
 A tool that's easy to use,
 
 With features that stand out from the rest,
-NANC helps businesses grow and thrive,
+Nanc helps businesses grow and thrive,
 
 Managing content with style and finesse,
-NANC, the CMS we can't resist.
+Nanc, the CMS we can't resist.
 ```
 
 The `separator` and `skipEmptyLines` arguments are available by default in `<text>` and `<textSpan>` widgets/tags. If you want to implement similar behavior in your custom widgets - you can do the same way as it is implemented in these widgets.

@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Backend driven UI
+# Server driven UI
 
-Nanc Backend Driven UI, called **NUI**, allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you relatively easily and do whatever you want.
+Nanc Server driven UI, called **NUI**, allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you relatively easily and do whatever you want.
 
 You have access to logical operators that hide or show interface elements, cycles, templating and variables - defined directly in the UI code and accessible from the outside - for example, the entire parent context of the document, one of the fields of which is `Screen Field`.
 
