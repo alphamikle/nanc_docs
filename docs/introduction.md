@@ -58,7 +58,7 @@ And fourth - add a base template for your application's core instead of the cont
 ```dart
 import 'dart:async';
 
-import 'package:cms/cms.dart';
+import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 
@@ -121,7 +121,7 @@ After you installed some API (like `nanc_local_api`) you should add it to the `C
 ```dart
 import 'dart:async';
 
-import 'package:cms/cms.dart';
+import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_api_local/nanc_api_local.dart';

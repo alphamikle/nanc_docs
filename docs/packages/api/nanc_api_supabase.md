@@ -49,7 +49,7 @@ So you have a database and a url with key to access it. Now you can create the r
 ```dart
 import 'dart:async';
 
-import 'package:cms/cms.dart';
+import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:model/model.dart';

@@ -25,7 +25,7 @@ Last is the implementation of the `IModelApi` interface. Pay special attention t
 ```dart
 import 'dart:async';
 
-import 'package:cms/cms.dart';
+import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:your_own_api/your_own_api.dart';
