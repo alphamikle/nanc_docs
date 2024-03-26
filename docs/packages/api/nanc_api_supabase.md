@@ -52,7 +52,7 @@ import 'dart:async';
 import 'package:nanc/nanc.dart';
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 
 import 'models/age_rating_model.dart';

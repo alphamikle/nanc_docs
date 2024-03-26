@@ -8,8 +8,8 @@ sidebar_position: 6
 
 ```yaml
 dependencies:
-  model:
-    path: ../nanc/model
+  nanc_model:
+    path: ../nanc/nanc_model
 ```
 
 ## What the Model Is?
@@ -30,7 +30,7 @@ Let's see on pretty simple model of a user:
 import 'package:config/config.dart';
 import 'package:nanc_fields/nanc_fields.dart';
 import 'package:icons/icons.dart';
-import 'package:model/model.dart';
+import 'package:nanc_model/nanc_model.dart';
 
 final Model supaUser = Model(
   name: 'Users',
