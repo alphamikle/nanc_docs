@@ -17,7 +17,7 @@ The second step is to create a tag renderer.
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 TagRenderer svgRenderer() {
@@ -142,7 +142,7 @@ Let's take a look at the updated renderer:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 import 'svg_arguments.dart';
@@ -281,7 +281,7 @@ Let's take a look at the resulting widget renderer we have at the moment:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
@@ -420,7 +420,7 @@ In general terms, there is no difference with headers. But there is in the appli
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 
 import 'properties/color_filter/color_filter_property.dart';
@@ -522,7 +522,7 @@ When the user turns to the interactive documentation of Nanc, he will be able bo
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 

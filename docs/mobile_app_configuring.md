@@ -179,7 +179,7 @@ If you want to use custom icons, you will also need to register them. Registrati
 ```dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:nanc_renderer/nanc_renderer.dart';
 

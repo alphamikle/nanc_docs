@@ -19,7 +19,7 @@ This package gives access to all the icons that are part of Nanc, as well as the
 Below are examples of using icons from the package, icon names, as well as useful factories that allow you to get an icon from the name in your mobile application:
 
 ```dart
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 
 final IconData someIcon = IconPack.mdi_console;
 final String someIconName = IconPackNames.mdi_console; // 'mdi_console'

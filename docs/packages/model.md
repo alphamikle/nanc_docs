@@ -29,7 +29,7 @@ Let's see on pretty simple model of a user:
 ```dart
 import 'package:config/config.dart';
 import 'package:nanc_fields/nanc_fields.dart';
-import 'package:icons/icons.dart';
+import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_model/nanc_model.dart';
 
 final Model supaUser = Model(
