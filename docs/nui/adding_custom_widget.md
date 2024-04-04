@@ -180,7 +180,7 @@ TagRenderer svgRenderer() {
 }
 ```
 
-That's it! If we were creating a fairly simple widget that has no descendants, and no complex parameters, then that would be the end of our custom renderer creation, and we would only have to use it in the [Nanc configuration](../nanc_configuring), and the [`NuiListWidget`/`NuiStackWidget`](../mobile_app_configuring) mobile application widget.
+That's it! If we were creating a fairly simple widget that has no descendants, and no complex parameters, then that would be the end of our custom renderer creation, and we would only have to use it in the [Nanc configuration](../configuration), and the [`NuiListWidget`/`NuiStackWidget`](../mobile_app_configuring) mobile application widget.
 
 Also, note how the absence of the mandatory argument `ref` is handled - it may still be missing in the DTO and in this case our renderer will just return `null`, but if this argument is present - we can already build our widget and return it.
 

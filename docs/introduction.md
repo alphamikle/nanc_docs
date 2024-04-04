@@ -76,7 +76,7 @@ Future<void> main() async {
         documentApi: LocalDocumentApi(),
         modelApi: LocalModelApi(),
         
-        networkConfig: NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
+        networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
         predefinedModels: [],

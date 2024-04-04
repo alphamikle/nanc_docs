@@ -20,4 +20,4 @@ dependencies:
     path: ../nanc/config
 ```
 
-More info about configuration for CMS you can find [here](../nanc_configuring) and about mobile app configuration [here](../mobile_app_configuring).
+More info about configuration for CMS you can find [here](../configuration) and about mobile app configuration [here](../mobile_app_configuring).
