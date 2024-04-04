@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Mobile app configuring
+# App configuration
 
 All you need to start using the Nanc Server driven UI in your application is to import the `nanc_renderer` package from the Nanc mono repository, and use one of the two widgets it exports:
 - `XmlWidgetStack`
@@ -174,7 +174,7 @@ You can do this, for example, when initializing an application. If you want to u
 
 ### Custom icons
 
-If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in [Nanc configuration](./configuration) section. To do the same in the application, you should use `IconsStorage` class from [`icons`](./packages/icons) package:
+If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in [Nanc configuration](./cms_configuration) section. To do the same in the application, you should use `IconsStorage` class from [`icons`](./packages/icons) package:
 
 ```dart
 import 'package:flutter/cupertino.dart';

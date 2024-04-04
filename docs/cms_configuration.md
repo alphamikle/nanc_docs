@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Configuration
+# CMS configuration
 
 Nanc has powerful in-depth customization capabilities for many aspects of the view and behavior. The current version of the available settings for customization is shown below:
 
@@ -142,7 +142,7 @@ If you are going to add custom sliver widgets implemented by you. You also need 
 
 ## Custom icons
 
-You can easily add your own custom icons to Nanc. For this purpose it is enough to pass `Map<String, IconData>` as an argument to `customIcons`. Configuring a mobile application using NUI is described in detail **[here](./mobile_app_configuring)**.
+You can easily add your own custom icons to Nanc. For this purpose it is enough to pass `Map<String, IconData>` as an argument to `customIcons`. Configuring a mobile application using NUI is described in detail **[here](./app_configuring)**.
 
 ## Preview theming
 
@@ -167,4 +167,4 @@ And copy the corresponding [file](https://github.com/alphamikle/nanc/blob/master
 
 ## Mobile app configuration
 
-If you are planning to use Nanc Server Driven UI in a mobile Flutter application, it is necessary to configure it as well. To do this, pay attention to the following section: **[Mobile App Configuration section](./mobile_app_configuring)**.
+If you are planning to use Nanc Server Driven UI in a mobile Flutter application, it is necessary to configure it as well. To do this, pay attention to the following section: **[Mobile App Configuration section](./app_configuring)**.
