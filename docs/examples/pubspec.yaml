@@ -1,0 +1,21 @@
+name: my_own_cms
+description: My CMS, built on top of Nanc
+publish_to: 'none'
+version: 0.0.1+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: ">=3.16.9"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  nanc: any
+  nanc_api_local: any
+  nanc_configuration: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
