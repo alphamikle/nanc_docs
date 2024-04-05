@@ -4,28 +4,22 @@ sidebar_position: 3
 
 # App configuration
 
-All you need to start using the Nanc Server driven UI in your application is to import the `nanc_renderer` package from the Nanc mono repository, and use one of the two widgets it exports:
-- `XmlWidgetStack`
-- `XmlWidgetSliverList`
-
-Let's assume that your application is in the same directory as the Nanc mono repository (as your CMS build from the CMS configuration section was):
-
-```
-/some_directory
-├── /nanc
-├── /<your_nanc_cms_app_dir>
-└── /<your_mobile_app> <-
-```
+All you need to start using the Nanc Server driven UI in your application is to install the **[`nui`](https://pub.dev/packages/nui)** package, and use one of the two widgets it exports:
+- `NuiStackWidget`
+- `NuiListWidget`
 
 ## Installation
 
-In that case, to use `nanc_renderer` package, you should add next string to your `pubspec.yaml` file:
+To use `nui` package, you should add next string to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  nanc_renderer:
-    path: ../nanc/nanc_renderer
+  nui: any # or specific version
 ```
+
+Keep in mind that the major version of `nui` should always match the major version of `nanc`, which you want to support.
+
+That is, all packages of version `1.x.x` will always be compatible with each other, just as packages of version `2.x.x`, and so on.
 
 ## Using
 
@@ -33,7 +27,7 @@ Now, you can use one of two built-in widgets, which supports rendering of Nanc X
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,12 +39,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nui App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Nui Demo App'),
     );
   }
 }
@@ -89,11 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
           imageErrorBuilder: null,
           imageFrameBuilder: null,
           imageLoadingBuilder: null,
+          binary: null,
+          nodes: null,
           xmlContent: '''
 <center>
   <column mainAxisSize="min">
-    <text size="18">
-      You have pushed the button this many times:
+    <text size="18" align="center">
+      You have pushed the button\nthis many times:
     </text>
     <text size="32">
       {{ page.counter }}
@@ -149,13 +145,10 @@ flutter:
           weight: 300
 ```
 
-- You need to register the used fonts with the `FontsStorage` from the [`fonts`](./packages/fonts) package:
+- You need to register the used fonts with the `FontsStorage` class from the [`nanc_fonts`](https://pub.dev/packages/nanc_fonts) **[package](./packages/fonts)**:
 
 ```dart
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:nanc_fonts/nanc_fonts.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
 
 void main() {
   FontsStorage.registerCustomFonts(
@@ -166,7 +159,6 @@ void main() {
       const CustomFont(font: 'SomeAnotherFont', package: 'another_package'),
     ],
   );
-  runApp(const MyApp());
 }
 ```
 
@@ -174,20 +166,17 @@ You can do this, for example, when initializing an application. If you want to u
 
 ### Custom icons
 
-If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in [Nanc configuration](./cms_configuration) section. To do the same in the application, you should use `IconsStorage` class from [`icons`](./packages/icons) package:
+If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in **[CMS configuration](./cms_configuration)** section. To do the same in the application, you should use `IconsStorage` class from [`nanc_icons`](./packages/icons) **[package](https://pub.dev/packages/nanc_icons)**:
 
 ```dart
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:nanc_icons/nanc_icons.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nanc_icons/nanc_icons.dart';
+
 
 void main() {
-  
   /*
   Originally, there are a map of strings, but String-value is an encoded character number from the icon font
-  
+
   const ioniconsMapping = {
     "accessibility-outline": "0xea01",
     "accessibility-sharp": "0xea02",
@@ -196,7 +185,7 @@ void main() {
   };
    */
   final Map<String, IconData> customIcons = ioniconsMapping.map(
-        (String key, String value) => MapEntry(
+    (String key, String value) => MapEntry(
       'ionic_${key.replaceAll('-', '_')}',
       IoniconsData(
         int.parse(value),
@@ -208,13 +197,12 @@ void main() {
     'cup_collections': CupertinoIcons.collections,
     ...customIcons,
   });
-  runApp(const MyApp());
 }
 ```
 
 Most off-the-shelf icon packages have some way to get an object of type `Map<String, IconData>`, such as the `ionicons` package offers - giving us access to the `ioniconsMapping` variable, which, however, still needs to be refined to be usable for our purposes.
 
-Also, it is highly recommended that you add some kind of global prefix to your icons. First of all, it will be easier to find only those icons that are included in a certain package, and secondly, it will reduce the risk of collision of names of icons from different packages, which can happen, considering that even in the standard Nanc package there are many thousands of icons.
+Also, it is highly recommended that you add some kind of global prefix to your icons packages. First of all, it will be easier to find only those icons that are included in a certain package, and secondly, it will reduce the risk of collision of names of icons from different packages, which can happen, considering that even in the standard Nanc package there are many thousands of icons.
 
 ### Renderers
 
@@ -236,6 +224,4 @@ Widget build() {
     sliverChecker: yourSliverCheckerHere,
   );
 }
-
-// ...
 ```
