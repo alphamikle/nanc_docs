@@ -4,9 +4,9 @@ sidebar_position: 3
 
 # Slivers
 
-Along with most of the usual widgets, NUI also supports `Slivers` - special widgets responsible for implementing complex patterns related to scrolling on the screen.
+Along with most of the usual widgets, Nui also supports `Slivers` - special widgets responsible for implementing complex patterns related to scrolling on the screen.
 
-You have two ways to use Slivers in your interface implemented with NUI:
+You have two ways to use Slivers in your interface implemented with Nui:
 
 1. You can use any implemented slivers as root elements, immediately in the main tag list, if you use the `scrollable` type, of the `ScreenField`.
 2. You can use as descendants, such widgets (tags), directly inside the `<customScrollView></customScrollView>` tag.
@@ -14,6 +14,7 @@ You have two ways to use Slivers in your interface implemented with NUI:
 If you want to add your own sliver tag, the flow of adding it is almost the same as adding a regular widget. The only difference is that you need to specify in the `tagType` parameter the value `TagType.sliver`, and also, add the function-checker, as an argument of `sliverChecker`, of the `CmsConfig` class, when configuring Nanc, and pass the same function as the same name to the `NuiListWidget` widget.
 
 An example of using a sliver tag directly in the main `scrollable` (`NuiListWidget`) tag flow:
+
 ```html
 <sliverAppBar floating="true" stretch="true" onStretchTrigger="snackbar: Stretched" expandedHeight="100">
   <alias name="title">
@@ -32,7 +33,7 @@ An example of using a sliver tag directly in the main `scrollable` (`NuiListWidg
 
 <sizedBox height="8"/>
 
-<for in="{{ 0...10 }}">
+<for from="0" to="10">
   <padding left="8" right="8" bottom="8">
     <container height="50" color="#80FF0000"/>
   </padding>
@@ -52,7 +53,8 @@ An example of using a sliver tag right inside `<customScrollView>`, in `stack` (
     <sizedBox height="8"/>
   </sliverToBoxAdapter>
   <sliverList>
-    <for in="{{ 0...10 }}">
+    <!-- from="0" can be omitted -->
+    <for to="10">
       <padding left="8" right="8" bottom="8">
         <container height="100" color="red"/>
       </padding>
@@ -65,7 +67,7 @@ An example of using a sliver tag right inside `<customScrollView>`, in `stack` (
   </sliverToBoxAdapter>
   <sliverPadding left="8" right="8">
     <sliverList>
-      <for in="{{ 0...5 }}">
+      <for to="10">
         <padding bottom="8">
           <container height="100" color="yellow"/>
         </padding>
@@ -73,7 +75,7 @@ An example of using a sliver tag right inside `<customScrollView>`, in `stack` (
     </sliverList>
   </sliverPadding>
   <sliverList>
-    <for in="{{ 0...10 }}">
+    <for to="10">
       <padding left="8" right="8" bottom="8">
         <container height="100" color="blue"/>
       </padding>
