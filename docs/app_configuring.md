@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# App configuration
+# App Configuration
 
 All you need to start using the Nanc Server driven UI in your application is to install the **[`nui`](https://pub.dev/packages/nui)** package, and use one of the two widgets it exports:
 - `NuiStackWidget`
@@ -42,7 +42,6 @@ class MyApp extends StatelessWidget {
       title: 'Nui App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Nui Demo App'),
     );

@@ -1,8 +1,8 @@
-label: Server driven UI
+label: Server Driven UI
 position: 4
 link:
   type: generated-index
   description: |
-    Nanc consists of many individual packages / plugins that together form
-    one application that you can extend without any headaches.
-    This section provides information about all the packages included in Nanc that you may find useful.
+    Nanc provides not only extensive capabilities related to data and content management, like a regular CMS.
+    Also, Nanc offers you a very flexible tool for dynamically creating and updating Flutter applications using the Server Driven UI approach.
+    This section will cover all aspects related to this approach.

@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Built in help
+# Built-in Help
 
 Nanc has built-in help for some aspects. The icons section [mentioned](./packages/icons#utils) a menu that allows you to search for icons available in Nanc and easily select them.
 

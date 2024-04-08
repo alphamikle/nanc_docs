@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# CMS configuration
+# CMS Configuration
 
 Nanc has powerful in-depth customization capabilities for many aspects of the view and behavior. The current version of the available settings for customization is shown below:
 
@@ -118,7 +118,7 @@ In the future, extensibility will become even more advanced, allowing you to rep
 
 ## Custom renderers
 
-`customRenderers` - a setting responsible for extending the Nanc functionality related to rendering widgets in the Server driven UI. By implementing and adding a new renderer you will be able to use it at any time in your application using Nanc Server Driven UI. You can learn more about this in this section: **[Server driven UI](nui/backend_driven_ui.md)**.
+`customRenderers` - a setting responsible for extending the Nanc functionality related to rendering widgets in the Server driven UI. By implementing and adding a new renderer you will be able to use it at any time in your application using Nanc Server Driven UI. You can learn more about this in this section: **[Server driven UI](nui/server_driven_ui)**.
 
 ## Events handlers
 
@@ -126,7 +126,7 @@ In the future, extensibility will become even more advanced, allowing you to rep
 
 The current model is event-based. An event is a string that can contain anything. From a simple name, to a JSON structure, a link, or anything. The `EventHandler` is responsible for handling a certain class of events, for example - all events starting with the keyword `deeplink`. Or all events that contain a value corresponding to some `RegExp` pattern. How exactly the event handling will be implemented is entirely your responsibility, and your opportunity.
 
-By intelligently separating the possible events in your application into classes, you can reach a state where you can modify and create very complex user scenarios, and all this will be available to your users in real time. Read more about this in the **[Server Driven UI](nui/backend_driven_ui.md)** section.
+By intelligently separating the possible events in your application into classes, you can reach a state where you can modify and create very complex user scenarios, and all this will be available to your users in real time. Read more about this in the **[Server Driven UI](nui/server_driven_ui)** section.
 
 :::tip
 Also, you may want to consider just specifying an identifier as the event, the corresponding handler will take that identifier, go to the backend, and get all the necessary arguments from that identifier that you would otherwise have to specify in the event itself.
@@ -134,7 +134,7 @@ Also, you may want to consider just specifying an identifier as the event, the c
 
 ## Custom fonts
 
-`customFonts` - an option to expand the available fonts in the Nanc Server Driven UI. You can add any custom font to your Nanc CMS, then, specify the parameters of the added font in this configuration, which accepts a list of font extensions, and voila - in your Nanc CMS, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the **[Nanc Server Driven UI](nui/backend_driven_ui)**.
+`customFonts` - an option to expand the available fonts in the Nanc Server Driven UI. You can add any custom font to your Nanc CMS, then, specify the parameters of the added font in this configuration, which accepts a list of font extensions, and voila - in your Nanc CMS, your newly added font will appear in the `FontField` field, which you will be able to use in the app as well, relying on the **[Nanc Server Driven UI](nui/server_driven_ui)**.
 
 ## Sliver checker
 
@@ -146,7 +146,7 @@ You can easily add your own custom icons to Nanc. For this purpose it is enough 
 
 ## Preview theming
 
-In order to be able to recreate your mobile app design in Nanc using **[NUI](./nui/backend_driven_ui)**, you can use the theme with `themeBuilder` from your mobile app. This way you will see in NUI pixel-perfect preview the same result to what you will see in your mobile application when developing components / screens using **[NUI](./nui/backend_driven_ui)**.
+In order to be able to recreate your mobile app design in Nanc using **[NUI](./nui/server_driven_ui)**, you can use the theme with `themeBuilder` from your mobile app. This way you will see in NUI pixel-perfect preview the same result to what you will see in your mobile application when developing components / screens using **[NUI](./nui/server_driven_ui)**.
 
 ## Web app configuration
 
