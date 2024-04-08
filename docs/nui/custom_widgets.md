@@ -2,13 +2,13 @@
 sidebar_position: 2
 ---
 
-# How to add custom widget
+# Custom widgets
 
 There can be many reasons for adding a new widget type (with the corresponding tag addition) - lack of an implemented widget list, complex and specific animations that can only be implemented directly in Dart, or equally complex logic. In this example, we will look at the process of adding a new widget that will be responsible for displaying SVG images.
 
 ## Prerequisites
 
-In order for you to create your own tagged widget, you need to import the [`nanc_renderer`](../packages/renderer) package.
+In order for you to create your own tagged widget, you need to install the **[`nui`](../packages/renderer.md)** package.
 
 ## Tag renderer
 
@@ -18,7 +18,7 @@ The second step is to create a tag renderer.
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 TagRenderer svgRenderer() {
   return TagRenderer(
@@ -76,8 +76,8 @@ Let's extend our example and write a DTO in which we will collect all the values
 ```dart
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
-import 'package:tools/tools.dart';
+import 'package:nui/nui.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 part 'svg_arguments.g.dart';
 
@@ -135,7 +135,7 @@ class SvgArguments {
 }
 ```
 
-As you can see, ready functions for field serialization / deserialization are actively used here, and in addition - all fields of our DTO are optional. It is highly recommended to always make all fields optional, as any of the arguments may not be present in the XML code. You can get ready functions for serialization / deserialization from the [`tools`](../packages/tools) package.
+As you can see, ready functions for field serialization / deserialization are actively used here, and in addition - all fields of our DTO are optional. It is highly recommended to always make all fields optional, as any of the arguments may not be present in the XML code. You can get ready functions for serialization / deserialization from the **[`nanc_tools`](../packages/tools.md)** package.
 
 Let's take a look at the updated renderer:
 
@@ -143,7 +143,7 @@ Let's take a look at the updated renderer:
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'svg_arguments.dart';
 
@@ -180,7 +180,7 @@ TagRenderer svgRenderer() {
 }
 ```
 
-That's it! If we were creating a fairly simple widget that has no descendants, and no complex parameters, then that would be the end of our custom renderer creation, and we would only have to use it in the [Nanc configuration](../cms_configuration), and the [`NuiListWidget`/`NuiStackWidget`](../app_configuring) mobile application widget.
+That's it! If we were creating a fairly simple widget that has no descendants, and no complex parameters, then that would be the end of our custom renderer creation, and we would only have to use it in the **[Cms configuration](../cms_configuration.md)** and the **[`NuiListWidget`](../app_configuring.md)** or **[`NuiStackWidget`](../app_configuring.md)** mobile application widgets.
 
 Also, note how the absence of the mandatory argument `ref` is handled - it may still be missing in the DTO and in this case our renderer will just return `null`, but if this argument is present - we can already build our widget and return it.
 
@@ -204,7 +204,7 @@ Header property:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'header_arguments.dart';
 import 'headers_property_widget.dart';
@@ -236,7 +236,7 @@ Header property arguments:
 
 ```dart
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 part 'header_arguments.g.dart';
 
@@ -261,7 +261,7 @@ class HeaderArguments {
 Header property widget:
 
 ```dart
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'header_property.dart';
 
@@ -274,7 +274,7 @@ class HeaderPropertyWidget extends PropertyWidget<Header> {
 }
 ```
 
-What do network headers typically represent? It is some kind of object (Map), with a key - the name of the header, and a value - the value of the header. So we can build the resulting object with all the headers from the constituent parts - `MapEntry`s. And the brick of this puzzle will be one parameter `header`.
+What do network headers typically represent? It is some kind of object (Map), with a key - the name of the header, and a value - the value of the header. So we can build the resulting object with all the headers from the constituent parts – `MapEntry`s. And the brick of this puzzle will be one parameter – `header`.
 
 Let's take a look at the resulting widget renderer we have at the moment:
 
@@ -282,7 +282,7 @@ Let's take a look at the resulting widget renderer we have at the moment:
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 import 'properties/color_filter/color_filter_property.dart';
@@ -302,11 +302,6 @@ TagRenderer svgRenderer() {
     example: '',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final SvgArguments arguments = SvgArguments.fromJson(element.attributes);
-      
-      /// Creating the extractor, to be able extract properties widgets and the UI widgets separately
-      ///                       ⬇︎  ⬇︎  ⬇︎                                                     Rendering all the children of current tag
-      ///                                                                                                   ⬇︎   ⬇︎   ⬇︎   ⬇︎
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if (arguments.ref == null || arguments.ref!.isEmpty) {
         return null;
@@ -314,6 +309,11 @@ TagRenderer svgRenderer() {
 
       final String ref = arguments.ref!;
       final bool isNetworkLink = ref.startsWith('http');
+      
+      /// Creating the extractor, to be able extract properties widgets and the UI widgets separately
+      ///                       ⬇︎  ⬇︎  ⬇︎                                                     Rendering all the children of current tag
+      ///                                                                                                   ⬇︎   ⬇︎   ⬇︎   ⬇︎
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       return SvgPicture(
         isNetworkLink
@@ -346,7 +346,7 @@ Color filter property:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'color_filter_arguments.dart';
 import 'color_filter_property_widget.dart';
@@ -377,7 +377,7 @@ Color filter arguments:
 ```dart
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tools/tools.dart';
+import 'package:nanc_tools/nanc_tools.dart';
 
 part 'color_filter_arguments.g.dart';
 
@@ -404,7 +404,7 @@ Color filter property widget:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 class ColorFilterPropertyWidget extends PropertyWidget<ColorFilter> {
   const ColorFilterPropertyWidget({
@@ -421,7 +421,7 @@ In general terms, there is no difference with headers. But there is in the appli
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 
 import 'properties/color_filter/color_filter_property.dart';
 import 'properties/header/header_property.dart';
@@ -486,16 +486,13 @@ From this example, you could see that it is possible to use multiple parameters 
 
 Well, it remains to go through the documentation...
 
-Затем документация
-И в конце пример с использованием детей-виджетов (можно вставить кусок кода из Column)
-
 ## Documentation
 
 ### Description
 
 The documentation consists of two large sections - a description, and an example. The description, in turn, consists of, literally, a human description of the widget/tag you are creating. We advise you not to spare words and describe everything in such a way that you yourself could understand why this widget is needed a year later, and that a user who has no idea how to use Nanc or Flutter could still understand what we are talking about.
 
-The `description` parameter of the `TagDescription` class, by the way, accepts not just text - it is a full-fledged Markdown, and you can use all its features there, the list of which can be found in [this package](https://pub.dev/packages/flutter_markdown).
+The `description` parameter of the `TagDescription` class, by the way, accepts not just text - it is a full-fledged Markdown, and you can use all its features there, the list of which can be found in **[this package](https://pub.dev/packages/flutter_markdown)**.
 
 ### Arguments
 
@@ -503,7 +500,7 @@ The `arguments` parameter allows you to describe all the arguments (simple varia
 
 In our case, one such extended argument is `color` - an argument that is considered `deprecated` in the original `SvgPicture` widget, but it is much easier to specify just color instead of the more complex `colorFilter` parameter, which is what was implemented.
 
-The `nanc_renderer` library contains an extensive list of implemented arguments, and you can use them to document your custom widgets. And if something is missing, you can always create your own description for any argument using the `TagArgument` class.
+The `nui` library contains an extensive list of implemented arguments, and you can use them to document your custom widgets. And if something is missing, you can always create your own description for any argument using the `TagArgument` class.
 
 ### Properties
 
@@ -523,7 +520,7 @@ When the user turns to the interactive documentation of Nanc, he will be able bo
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nanc_icons/nanc_icons.dart';
-import 'package:nanc_renderer/nanc_renderer.dart';
+import 'package:nui/nui.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 import 'properties/color_filter/color_filter_property.dart';
@@ -602,7 +599,7 @@ Path to a file pre-compiled into a special vector format. Details are available 
       <prop:header name="ETag" value="737060cd8c284d8af7ad3082f209582d"/>
       <prop:colorFilter color="yellow" mode="color"/>
     </svg>
-    <for in="{{ 2...10 }}">
+    <for from="2" to="10">
       <svg ref="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/{{ cycle.value }}.svg" size="50"/>
     </for>
   </column>
@@ -610,7 +607,6 @@ Path to a file pre-compiled into a special vector format. Details are available 
 ''',
     builder: (BuildContext context, WidgetTag element, RichRenderer richRenderer) {
       final SvgArguments arguments = SvgArguments.fromJson(element.attributes);
-      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       if ((arguments.ref == null || arguments.ref!.isEmpty) && (arguments.vec == null || arguments.vec!.isEmpty)) {
         return null;
@@ -619,6 +615,8 @@ Path to a file pre-compiled into a special vector format. Details are available 
       final bool isVector = arguments.vec != null && arguments.vec!.isNotEmpty;
       final String ref = isVector ? arguments.vec! : arguments.ref!;
       final bool isNetworkLink = ref.startsWith('http');
+
+      final PropertiesExtractor extractor = PropertiesExtractor(context: context, rawChildren: richRenderer.renderChildren(context, element.children));
 
       ColorFilter? effectiveColorFilter = extractor.getProperty(colorFilter);
 
