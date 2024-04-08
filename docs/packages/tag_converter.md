@@ -4,9 +4,9 @@ sidebar_position: 8
 
 # Tag converter
 
-This package is designed to convert NUI-XML code to JSON and/or Protobuf format. This can be useful for reducing the size of the message being passed, faster rendering and possible unification. In addition, you can use, for example, the resulting JSON to generate similar interfaces using the backend immediately in JSON format, knowing its structure.
+This package is designed to convert Nui-XML code to JSON and/or Protobuf format. This can be useful for reducing the size of the message being passed, faster rendering and possible unification. In addition, you can use, for example, the resulting JSON to generate similar interfaces using the backend immediately in JSON format, knowing its structure.
 
-The most optimized form of NUI, in turn, is Protobuf, which provides much faster rendering speed in a mobile application. However, this does not mean that the standard way of rendering from XML is slow. No. It's just that Protobuf is much faster.
+The most optimized form of Nui, in turn, is Protobuf, which provides much faster rendering speed in a mobile application. However, this does not mean that the standard way of rendering from XML is slow. No. It's just that Protobuf is much faster.
 
 `tag_converter` depends only on Dart, which makes it easy to run on the server, embedding it in your call processing chains.
 

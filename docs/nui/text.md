@@ -6,20 +6,20 @@ sidebar_position: 4
 
 ## Standard widgets for text manipulation
 
-NUI offers flexible word processing options. You can both create plain text widgets, in which you can nevertheless change absolutely any aspect of the appearance applied to the entire text block.
+Nui offers flexible word processing options. You can both create plain text widgets, in which you can nevertheless change absolutely any aspect of the appearance applied to the entire text block.
 
-But also, you can use and extremely flexible and powerful way of creating texts, where each letter can be customized uniquely.
+But also, you can use an extremely flexible and powerful way of creating texts, where each letter can be customized uniquely.
 
 For this, check out the `<text>` widgets/tags - a simple and flexible way to write texts and `<richText>` - a more complex but incredibly powerful tool that will allow you to create text content of the most mind-blowing sophistication.
 
 ## Custom Text Widgets
 
-If you want to create your own custom widget/tag and it will consume some textual content, you have two ways exactly how you will pass text to that widget:
+If you want to create your own custom widget/tag, and it will consume some textual content, you have two ways exactly how you will pass text to that widget:
 
-- Using arguments, and processing them in the usual way (just like any other argument)
+- Using arguments and processing them in the usual way (just like any other argument)
 - Writing text directly inside the tag, as is possible in the `<text>` and `<richText>` tags
 
-You can combine both ways, allowing your users to do both. But to make the second way possible, pay attention to the helper functions available in the `nanc_renderer` package, namely `extractTextFromChildren` and `extractTextFromChild`.
+You can combine both ways, allowing your users to do both. But to make the second way possible, pay attention to the helper functions available in the `nui` package, namely `extractTextFromChildren` and `extractTextFromChild`.
 
 ### Extract text from all descendants
 
@@ -28,12 +28,20 @@ If you know for sure that your widget can only contain and process text located 
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  Nanc, the content management system,
-  A tool that's easy to use,
-  With features that stand out from the rest,
-  Nanc helps businesses grow and thrive,
-  Managing content with style and finesse,
-  Nanc, the CMS we can't resist.
+  In the world of code and fancy trance,
+  Lives a tool that's known as Nanc.
+  It twists and turns, through data it dances,
+  Making devs smile with second chances.
+
+  No more headaches, no more fuss,
+  Nanc's here to help, without a cuss.
+  With a click and a drag, it's all so clear,
+  Building apps, we now cheer!
+
+  So here's to Nanc, our digital lance,
+  Cutting through problems, giving us a chance.
+  In the land of code, it takes a stance,
+  Thank you, dear Nanc, for enhancing our dance!
 </text>
 ```
 
@@ -56,24 +64,38 @@ Let's start with the first one. Let's assume that we have typed the following UI
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  Nanc, the content management system,
-  A tool that's easy to use,
-  With features that stand out from the rest,
-  Nanc helps businesses grow and thrive,
-  Managing content with style and finesse,
-  Nanc, the CMS we can't resist.
+  In the world of code and fancy trance,
+  Lives a tool that's known as Nanc.
+  It twists and turns, through data it dances,
+  Making devs smile with second chances.
+
+  No more headaches, no more fuss,
+  Nanc's here to help, without a cuss.
+  With a click and a drag, it's all so clear,
+  Building apps, we now cheer!
+
+  So here's to Nanc, our digital lance,
+  Cutting through problems, giving us a chance.
+  In the land of code, it takes a stance,
+  Thank you, dear Nanc, for enhancing our dance!
 </text>
 ```
 
 By default, this text will be formatted so that the indentation on the left of each line is removed and the lines will run as they do in the text, one after the other:
 
 ```text.
-Nanc, the content management system,
-A tool that's easy to use,
-With features that stand out from the rest,
-Nanc helps businesses grow and thrive,
-Managing content with style and finesse,
-Nanc, the CMS we can't resist.
+In the world of code and fancy trance,
+Lives a tool that's known as Nanc.
+It twists and turns, through data it dances,
+Making devs smile with second chances.
+No more headaches, no more fuss,
+Nanc's here to help, without a cuss.
+With a click and a drag, it's all so clear,
+Building apps, we now cheer!
+So here's to Nanc, our digital lance,
+Cutting through problems, giving us a chance.
+In the land of code, it takes a stance,
+Thank you, dear Nanc, for enhancing our dance!
 ```
 
 If you want to indent paragraphs, the `\` symbol will help:
@@ -81,30 +103,44 @@ If you want to indent paragraphs, the `\` symbol will help:
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  \  Nanc, the content management system,
-  A tool that's easy to use,
-  With features that stand out from the rest,
-  Nanc helps businesses grow and thrive,
-  Managing content with style and finesse,
-  Nanc, the CMS we can't resist.
+  \ In the world of code and fancy trance,
+  Lives a tool that's known as Nanc.
+  It twists and turns, through data it dances,
+  Making devs smile with second chances.
+
+  \ No more headaches, no more fuss,
+  Nanc's here to help, without a cuss.
+  With a click and a drag, it's all so clear,
+  Building apps, we now cheer!
+
+  \ So here's to Nanc, our digital lance,
+  Cutting through problems, giving us a chance.
+  In the land of code, it takes a stance,
+  Thank you, dear Nanc, for enhancing our dance!
 </text>
 ```
 
 This will produce the following result:
 
 ```text
-  Nanc, the content management system,
-A tool that's easy to use,
-With features that stand out from the rest,
-Nanc helps businesses grow and thrive,
-Managing content with style and finesse,
-Nanc, the CMS we can't resist.
+  In the world of code and fancy trance,
+Lives a tool that's known as Nanc.
+It twists and turns, through data it dances,
+Making devs smile with second chances.
+  No more headaches, no more fuss,
+Nanc's here to help, without a cuss.
+With a click and a drag, it's all so clear,
+Building apps, we now cheer!
+  So here's to Nanc, our digital lance,
+Cutting through problems, giving us a chance.
+In the land of code, it takes a stance,
+Thank you, dear Nanc, for enhancing our dance!
 ```
 
 Finally, if you want the text to be a single line rather than line-by-line, even though you wrote it in the image of the example, just set the `separator` parameter equal to, for example, a space - ` `, and we get the following result:
 
 ```text
-  Nanc, the content management system, A tool that's easy to use, With features that stand out from the rest, Nanc helps businesses grow and thrive, Managing content with style and finesse, Nanc, the CMS we can't resist.
+ In the world of code and fancy trance, Lives a tool that's known as Nanc. It twists and turns, through data it dances, Making devs smile with second chances. No more headaches, no more fuss, Nanc's here to help, without a cuss. With a click and a drag, it's all so clear, Building apps, we now cheer! So here's to Nanc, our digital lance, Cutting through problems, giving us a chance. In the land of code, it takes a stance, Thank you, dear Nanc, for enhancing our dance!
 ```
 
 And the last thing is empty strings. If you want to stylistically divide the text into paragraphs, you probably use blank lines to do this, for example like this:
@@ -112,28 +148,40 @@ And the last thing is empty strings. If you want to stylistically divide the tex
 ```html
 <text size="18">
   <prop:textStyle font="Rowdies"/>
-  \  Nanc, the content management system,
-  A tool that's easy to use,
-  
-  With features that stand out from the rest,
-  Nanc helps businesses grow and thrive,
-  
-  Managing content with style and finesse,
-  Nanc, the CMS we can't resist.
+  \ In the world of code and fancy trance,
+  Lives a tool that's known as Nanc.
+  It twists and turns, through data it dances,
+  Making devs smile with second chances.
+
+  \ No more headaches, no more fuss,
+  Nanc's here to help, without a cuss.
+  With a click and a drag, it's all so clear,
+  Building apps, we now cheer!
+
+  \ So here's to Nanc, our digital lance,
+  Cutting through problems, giving us a chance.
+  In the land of code, it takes a stance,
+  Thank you, dear Nanc, for enhancing our dance!
 </text>
 ```
 
 By default such empty lines are discarded, if you want to keep them, set the `skipEmptyLines` parameter to `true` and the result is the following text:
 
 ```text
-  Nanc, the content management system,
-A tool that's easy to use,
+  In the world of code and fancy trance,
+Lives a tool that's known as Nanc.
+It twists and turns, through data it dances,
+Making devs smile with second chances.
 
-With features that stand out from the rest,
-Nanc helps businesses grow and thrive,
+  No more headaches, no more fuss,
+Nanc's here to help, without a cuss.
+With a click and a drag, it's all so clear,
+Building apps, we now cheer!
 
-Managing content with style and finesse,
-Nanc, the CMS we can't resist.
+  So here's to Nanc, our digital lance,
+Cutting through problems, giving us a chance.
+In the land of code, it takes a stance,
+Thank you, dear Nanc, for enhancing our dance!
 ```
 
 The `separator` and `skipEmptyLines` arguments are available by default in `<text>` and `<textSpan>` widgets/tags. If you want to implement similar behavior in your custom widgets - you can do the same way as it is implemented in these widgets.

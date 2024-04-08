@@ -20,7 +20,7 @@ A special widget/tag `<for>` allows you to iterate both values and prime numbers
 
 ## Data
 
-You can draw the NUI interface based on the data, and update this interface when the data is updated. The following widgets/tags will help you do this: `<data>` - a tag that allows you to specify certain values on keys to be placed in `DataStorage`. This can be useful if you want to be able to change over-used parameters in one place, or if you are forming some complex data structure that will determine the appearance of any elements on the screen. Second tag: `<dataBuilder>` - allows you to update nested elements when the data used in these elements changes, or generate events when the corresponding data changes.
+You can draw the Nui interface based on the data, and update this interface when the data is updated. The following widgets/tags will help you do this: `<data>` - a tag that allows you to specify certain values on keys to be placed in `DataStorage`. This can be useful if you want to be able to change over-used parameters in one place, or if you are forming some complex data structure that will determine the appearance of any elements on the screen. Second tag: `<dataBuilder>` - allows you to update nested elements when the data used in these elements changes, or generate events when the corresponding data changes.
 
 In order to use this functionality, in addition to using the widgets themselves - `NuiListWidget` or `NuiStackWidget` - you need to use the following widget and class somewhere in the parent zone of these widgets:
 
@@ -51,10 +51,10 @@ class _RootViewState extends State<RootView> {
 
 ## Variables
 
-In the NUI, you have access to the following data sources:
+In the Nui, you have access to the following data sources:
 
-- Parent context - data that is intended to be changed only by the "consumer" of the NUI widgets. For example, if you want to display a list of product cards, it makes sense to place the data of these products in this data source. No additional actions are required from your side to use it. And in XML code you can access any element in the following format: `someAttribute="{{ page.some.key }}"`.
-- The global data store is `DataStorage`. This data source allows you to store the same list as the previous one, however, you can manipulate the data in this source through the NUI XML markup. You can access any value from the `DataStorage` by using `{{ data.some.key }}` or iterate through it with `in="{{ data.products }}"`. More on this below
+- Parent context - data that is intended to be changed only by the "consumer" of the Nui widgets. For example, if you want to display a list of product cards, it makes sense to place the data of these products in this data source. No additional actions are required from your side to use it. And in XML code you can access any element in the following format: `someAttribute="{{ page.some.key }}"`.
+- The global data store is `DataStorage`. This data source allows you to store the same list as the previous one, however, you can manipulate the data in this source through the Nui XML markup. You can access any value from the `DataStorage` by using `{{ data.some.key }}` or iterate through it with `in="{{ data.products }}"`. More on this below
 - Templates and components - special widgets/tags that allow you to reuse your components described in XML. When declaring a template, inside the `<template>` tag you can place a call to any attributes in `{{ template.someKey }}` format. And then, using this template with the `<component>` tag, you can specify attributes with the same keys, thus passing the data inside the template component
 
 ## Events
@@ -93,7 +93,7 @@ In this case, the keys can also be compound keys:
 
 ## Calculations
 
-You can use math operators in calculated expressions in your NUI code. For example, you can use the following form to specify the `ratio` parameter of the `<aspectRatio>` widget/tag:
+You can use math operators in calculated expressions in your Nui code. For example, you can use the following form to specify the `ratio` parameter of the `<aspectRatio>` widget/tag:
 
 ```html
 <aspectRatio ratio="{{ 4 / 3 }}">

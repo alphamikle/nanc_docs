@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Server Driven UI
 
-Nanc Server Driven UI, called **NUI** here and later, allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you very easily and do whatever you want.
+Nanc Server Driven UI, called **Nui** here and later, allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you very easily and do whatever you want.
 
 You have access to logical operators that hide or show interface elements, cycles, templating and variables - defined directly in the UI code and accessible from the outside - for example, the entire parent context of the document, one of the **[fields](../packages/nanc_fields.md)** of which is `Screen Field`.
 
@@ -236,7 +236,7 @@ The value of the `onPressed` parameter - within the framework of Nanc concepts, 
 
 The event handler is a special `EventHandler` class that you can import from the **[config](../packages/config.md)** package.
 
-Having implemented the required `EventHandler`s - you must implement them in your widget tree via another widget called `EventDelegate`, which you can import from the `nanc_renderer` package - the package required for your mobile application that is going to render the **NUI**:
+Having implemented the required `EventHandler`s - you must implement them in your widget tree via another widget called `EventDelegate`, which you can import from the `nui` package - the package required for your mobile application that is going to render the **Nui**:
 
 ```dart
 Widget build() {

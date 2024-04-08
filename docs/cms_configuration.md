@@ -142,11 +142,11 @@ If you are going to add custom sliver widgets implemented by you. You also need 
 
 ## Custom icons
 
-You can easily add your own custom icons to Nanc. For this purpose it is enough to pass `Map<String, IconData>` as an argument to `customIcons`. Configuring a mobile application using NUI is described in detail **[here](./app_configuring)**.
+You can easily add your own custom icons to Nanc. For this purpose it is enough to pass `Map<String, IconData>` as an argument to `customIcons`. Configuring a mobile application using Nui is described in detail **[here](./app_configuring)**.
 
 ## Preview theming
 
-In order to be able to recreate your mobile app design in Nanc using **[NUI](./nui/server_driven_ui)**, you can use the theme with `themeBuilder` from your mobile app. This way you will see in NUI pixel-perfect preview the same result to what you will see in your mobile application when developing components / screens using **[NUI](./nui/server_driven_ui)**.
+In order to be able to recreate your mobile app design in Nanc using **[Nui](./nui/server_driven_ui)**, you can use the theme with `themeBuilder` from your mobile app. This way you will see in Nui pixel-perfect preview the same result to what you will see in your mobile application when developing components / screens using **[Nui](./nui/server_driven_ui)**.
 
 ## Web app configuration
 

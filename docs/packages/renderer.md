@@ -8,6 +8,6 @@ sidebar_position: 0
 
 ```yaml
 dependencies:
-  nanc_renderer:
-    path: ../nanc/nanc_renderer
+  nui:
+    path: ../nanc/nui
 ```

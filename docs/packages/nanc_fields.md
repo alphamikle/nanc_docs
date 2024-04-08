@@ -78,7 +78,7 @@ There is also an automatic validation for leaving the boundaries of the used typ
 
 The field responsible for creating the interface of a mobile application written in Flutter. The data type is `String`. This line can be quite large, so be careful about the limits you place on the size of this field in your document. The value of this field can be of two types - `Scrollable` and `Stack`. This field and Nanc's ability to create interfaces will be discussed in more detail in the chapter on [Server driven UI](../nui/server_driven_ui).
 
-### Compilation of NUI-code
+### Compilation of Nui-code
 
 Screen Field has an additional parameter `Binary Data Field ID`. You can specify it, thus extending the structure of your document.
 For example, before specifying this parameter, your model had, simplistically, the following structure:
@@ -104,7 +104,7 @@ I will draw your attention to the fact that the actual form of this structure wi
 
 Now to the details - what is this field? It allows you to store "compiled" UI code in raw binary form, maximally optimized for use in the application. It's worth noting that the conversion is done only over the UI code, but not over the screen type (`Scrollable` / `Stack`).
 
-What is the purpose of this field in the first place? If you have a large and complex screen created entirely with NUI, the time to parse it in the application can take more than `8ms, which in turn can cause hangs when rendering such screens. The rendering of the interface from the binary format, on the other hand, is significantly faster (we are talking about several tens or even hundreds of times). Therefore, if you want to further optimize the performance of complex screens created with NUI, it makes sense to use this code format.
+What is the purpose of this field in the first place? If you have a large and complex screen created entirely with Nui, the time to parse it in the application can take more than `8ms, which in turn can cause hangs when rendering such screens. The rendering of the interface from the binary format, on the other hand, is significantly faster (we are talking about several tens or even hundreds of times). Therefore, if you want to further optimize the performance of complex screens created with Nui, it makes sense to use this code format.
 
 At the same time, this optimized format is an addition to the usual XML-based format, and is stored in a separate column (or field of the document).
 
