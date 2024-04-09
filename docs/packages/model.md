@@ -53,7 +53,7 @@ final Model supaUser = Model(
 
 As you can see from this example, to describe the model, you first need to import some additional Nanc packages:
 
-- [Config](./config)
+- [Config](./nanc_configuration)
 - [Fields](./nanc_fields)
 - [Icons](./icons)
 - [Model](./model)

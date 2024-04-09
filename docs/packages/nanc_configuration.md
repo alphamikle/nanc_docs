@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Config
+# Nanc configuration
 
 This package contains the configurations used when running Nanc, and you can also customize some aspects of the CMS by passing environment variables:
 
@@ -14,10 +14,11 @@ Also, this package will be useful to you if you are going to write your own API 
 
 ## Import
 
+Install it from [pub.dev](https://pub.dev/packages/nanc_configuration):
+
 ```yaml
 dependencies:
-  config:
-    path: ../nanc/config
+  nanc_configuration: any
 ```
 
-More info about configuration for CMS you can find [here](../cms_configuration) and about mobile app configuration [here](../app_configuring).
+More info about configuration for CMS you can find [here](../cms_configuration.md) and about mobile app configuration [here](../app_configuring.md).

@@ -234,7 +234,7 @@ Nanc supports many ways to achieve interactivity - handling custom clicks/taps, 
 
 The value of the `onPressed` parameter - within the framework of Nanc concepts, is called an event. Event can be any string, and you can assign handlers for any events. Say, you can make a handler for events starting with the string `addToCart:`.
 
-The event handler is a special `EventHandler` class that you can import from the **[config](../packages/config.md)** package.
+The event handler is a special `EventHandler` class that you can import from the **[config](../packages/nanc_configuration)** package.
 
 Having implemented the required `EventHandler`s - you must implement them in your widget tree via another widget called `EventDelegate`, which you can import from the `nui` package - the package required for your mobile application that is going to render the **Nui**:
 
