@@ -165,7 +165,7 @@ You can do this, for example, when initializing an application. If you want to u
 
 ### Custom icons
 
-If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in **[CMS configuration](./cms_configuration)** section. To do the same in the application, you should use `IconsStorage` class from [`nanc_icons`](./packages/icons) **[package](https://pub.dev/packages/nanc_icons)**:
+If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in **[CMS configuration](./cms_configuration)** section. To do the same in the application, you should use `IconsStorage` class from [`nanc_icons`](./packages/nanc_icons) **[package](https://pub.dev/packages/nanc_icons)**:
 
 ```dart
 import 'package:ionicons/ionicons.dart';

@@ -2,14 +2,15 @@
 sidebar_position: 5
 ---
 
-# Icons
+# Nanc icons
 
 ## Import
 
+Install it from [pub.dev](https://pub.dev/packages/nanc_icons):
+
 ```yaml
 dependencies:
-  icons:
-    path: ../nanc/icons
+  nanc_icons: any
 ```
 
 ## Using
@@ -41,4 +42,4 @@ In general, three packages are currently selected as standard icons - Material D
 
 ## Customizing
 
-In the future, Nanc will add the ability to expand existing icons, as well as disable unnecessary ones. But if you don't want to wait, and want to extend or completely replace all icons in Nanc - take a look at the file `nanc/icons/merge_icon_packs.dart` - by analogy with what is written there, you can write generators for your own icons, however , keep in mind that Nanc itself uses the generated `IconPack` package, therefore, when removing icons from the standard package, make sure that the icons necessary for Nanc to work are preserved.
+You are able to use your own icons as described [here](../cms_configuration.md#custom-icons).

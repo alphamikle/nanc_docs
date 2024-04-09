@@ -55,7 +55,7 @@ As you can see from this example, to describe the model, you first need to impor
 
 - [Config](./nanc_configuration)
 - [Fields](./nanc_fields)
-- [Icons](./icons)
+- [Icons](./nanc_icons)
 - [Model](./model)
 
 Then - let's explain `Model`'s params:
@@ -64,9 +64,9 @@ The `name` is responsible for the name of the model visible to the human user of
 
 The `id` is the model identifier, unique among all your models. This identifier will also be used when interacting with your data source. For example, in this example, it is expected that there is a table named `users` in your database.
 
-The `icon` is the string name of the icon that will be displayed in the Nanc interface, next to the model, collection or document name. You can choose any icon from a built-in set of several thousand icons. Use the [Icons](./icons) package, and the `IconPackNames` class exported from it.
+The `icon` is the string name of the icon that will be displayed in the Nanc interface, next to the model, collection or document name. You can choose any icon from a built-in set of several thousand icons. Use the [Icons](./nanc_icons) package, and the `IconPackNames` class exported from it.
 
-You can also preview all available icons, search through them to select the appropriate one. And how to do this - you can learn in the section devoted to the package [Icons](./icons).
+You can also preview all available icons, search through them to select the appropriate one. And how to do this - you can learn in the section devoted to the package [Icons](./nanc_icons).
 
 The `fields` - is responsible for the contents of the model. You have a large list of fields available that you can use to describe your data structures. See the [Fields](./nanc_fields) section for more information.
 
