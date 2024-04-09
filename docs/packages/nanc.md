@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Nanc
 
-The Nanc kernel, which gives you a method to run the CMS, as well as a service to catch errors.
+A key CMS package that is essential if you are going to create your Nanc instance.
 
 ## Import
 
