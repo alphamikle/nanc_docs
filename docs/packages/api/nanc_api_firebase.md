@@ -14,6 +14,8 @@ In the future, instructions on how to customize Nanc's built-in functionality wi
 
 ## Installing
 
+Install it from [pub.dev](https://pub.dev/packages/nanc_api_firebase):
+
 ```yaml
 dependencies:
   nanc_api_firebase: any
@@ -116,6 +118,9 @@ Future<void> main() async {
         customRenderers: [],
         eventsHandlers: [],
         customFonts: [],
+        sliverChecker: null,
+        customIcons: null,
+        themeBuilder: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
