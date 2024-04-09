@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Config package
 
-The first thing is that you need to install the config package. You can use the instructions in its [description](../../packages/config) and then come back here.
+The first thing you need - is the nanc configuration [package](https://pub.dev/packages/nanc_configuration) and the [nanc](https://pub.dev/packages/nanc) itself packages. You can use the instructions in its **[description](../../packages/config.md)** and then come back here.
 
 ## Collection api
 
@@ -26,7 +26,7 @@ Last is the implementation of the `IModelApi` interface. Pay special attention t
 import 'dart:async';
 
 import 'package:nanc/nanc.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:your_own_api/your_own_api.dart';
 
@@ -39,13 +39,16 @@ Future<void> main() async {
         collectionApi: YourOwnCollectionApi(),
         documentApi: YourOwnDocumentApi(),
         modelApi: YourOwnModelApi(),
-        networkConfig: NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
+        networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
         predefinedModels: [],
         customRenderers: [],
         eventsHandlers: [],
         customFonts: [],
+        sliverChecker: null,
+        customIcons: null,
+        themeBuilder: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
