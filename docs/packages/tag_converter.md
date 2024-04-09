@@ -4,6 +4,17 @@ sidebar_position: 8
 
 # Tag converter
 
+## Import
+
+Install it from [pub.dev](https://pub.dev/packages/tag_converter):
+
+```yaml
+dependencies:
+  tag_converter: any
+```
+
+## Using
+
 This package is designed to convert Nui-XML code to JSON and/or Protobuf format. This can be useful for reducing the size of the message being passed, faster rendering and possible unification. In addition, you can use, for example, the resulting JSON to generate similar interfaces using the backend immediately in JSON format, knowing its structure.
 
 The most optimized form of Nui, in turn, is Protobuf, which provides much faster rendering speed in a mobile application. However, this does not mean that the standard way of rendering from XML is slow. No. It's just that Protobuf is much faster.
