@@ -8,50 +8,19 @@ The Nanc kernel, which gives you a method to run the CMS, as well as a service t
 
 ## Import
 
+Install it from [pub.dev](https://pub.dev/packages/nanc):
+
 ```yaml
 dependencies:
-  nanc:
-    path: ../nanc/nanc
+  nanc: any
 ```
 
-## Using
-
-```dart
-/// main.dart
-
-import 'dart:async';
-
-import 'package:nanc/nanc.dart';
-import 'package:nanc_configuration/nanc_configuration.dart';
-import 'package:flutter/material.dart';
-import 'package:nanc_api_local/nanc_api_local.dart';
-
-Future<void> main() async {
-  await runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await adminRunner(
-      CmsConfig(
-        /// ? Your should implement these APIs or use already implemented instead
-        collectionApi: LocalCollectionApi(),
-        documentApi: LocalDocumentApi(),
-        modelApi: LocalModelApi(),
-        networkConfig: NetworkConfig(
-          paginationPageNumberParameterName: 'page',
-          paginationLimitParameterName: 'limit',
-          paginationDataContainerParameterName: 'data',
-          paginationTotalPagesParameterName: 'total_pages',
-          paginationLimitParameterDefaultValue: 100,
-        ),
-        imageBuilderDelegate: null,
-        adminWrapperBuilder: null,
-        predefinedModels: [
-          /// ? Here will be a list of your predefined code-first models
-        ],
-        customRenderers: [],
-        eventsHandlers: [],
-        customFonts: [],
-      ),
-    );
-  }, ErrorsCatcher.catchZoneErrors);
-}
-```
+This package contains several modules, each of which may be useful in certain situations:
+- nanc
+- collection
+- document
+- editor
+- fields
+- model
+- services
+- ui_kit
