@@ -6,10 +6,11 @@ sidebar_position: 3
 
 ## Installing
 
+Install it from [pub.dev](https://pub.dev/packages/nanc_api_supabase):
+
 ```yaml
 dependencies:
-  nanc_api_supabase:
-    path: ../nanc/nanc_api_supabase
+  nanc_api_supabase: any
 ```
 
 ## Creating new Supabase project
@@ -52,7 +53,7 @@ import 'dart:async';
 import 'package:nanc/nanc.dart';
 import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
-import 'package:nanc_model/nanc_model.dart';
+import 'package:nanc/model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
 
 import 'models/age_rating_model.dart';
@@ -120,6 +121,9 @@ Future<void> main() async {
         customRenderers: [],
         eventsHandlers: [],
         customFonts: [],
+        sliverChecker: null,
+        customIcons: null,
+        themeBuilder: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
