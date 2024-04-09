@@ -16,8 +16,7 @@ In the future, instructions on how to customize Nanc's built-in functionality wi
 
 ```yaml
 dependencies:
-  nanc_api_firebase:
-    path: ../nanc/nanc_api_firebase
+  nanc_api_firebase: any
 ```
 
 ## Configuring
