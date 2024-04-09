@@ -22,7 +22,7 @@ In the future this API will be supplemented - Sqlite will be used as a means of 
 import 'dart:async';
 
 import 'package:nanc/nanc.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_api_local/nanc_api_local.dart';
 

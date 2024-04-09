@@ -27,7 +27,7 @@ Also, you can use regular incrementable identifiers at your database level as we
 Let's see on pretty simple model of a user:
 
 ```dart
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:nanc_fields/nanc_fields.dart';
 import 'package:nanc_icons/nanc_icons.dart';
 import 'package:nanc_model/nanc_model.dart';

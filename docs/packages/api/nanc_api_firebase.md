@@ -82,7 +82,7 @@ So you have a database and a JSON key to access it. Now you can create the requi
 import 'dart:async';
 
 import 'package:nanc/nanc.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_api_firebase/nanc_api_firebase.dart';
 

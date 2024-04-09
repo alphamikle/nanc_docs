@@ -50,7 +50,7 @@ So you have a database and a url with key to access it. Now you can create the r
 import 'dart:async';
 
 import 'package:nanc/nanc.dart';
-import 'package:config/config.dart';
+import 'package:nanc_configuration/nanc_configuration.dart';
 import 'package:flutter/material.dart';
 import 'package:nanc_model/nanc_model.dart';
 import 'package:nanc_api_supabase/nanc_api_supabase.dart';
