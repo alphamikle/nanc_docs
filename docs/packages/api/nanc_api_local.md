@@ -6,10 +6,11 @@ sidebar_position: 4
 
 ## Installing
 
+Install it from [pub.dev](https://pub.dev/packages/nanc_api_local):
+
 ```yaml
 dependencies:
-  nanc_api_local:
-    path: ../nanc/nanc_api_local
+  nanc_api_local: any
 ```
 
 ## Using
@@ -36,13 +37,16 @@ Future<void> main() async {
         collectionApi: LocalCollectionApi(),
         documentApi: LocalDocumentApi(),
         modelApi: LocalModelApi(),
-        networkConfig: NetworkConfig.simple(paginationLimitParameterDefaultValue: 50),
+        networkConfig: NetworkConfig.simple(),
         imageBuilderDelegate: null,
         adminWrapperBuilder: null,
         predefinedModels: [],
         customRenderers: [],
         eventsHandlers: [],
         customFonts: [],
+        sliverChecker: null,
+        customIcons: null,
+        themeBuilder: null,
       ),
     );
   }, ErrorsCatcher.catchZoneErrors);
