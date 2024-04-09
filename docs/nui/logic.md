@@ -16,19 +16,19 @@ Conditional rendering of widgets/tags is possible with the help of a special tag
 
 ## Iteration
 
-A special widget/tag `<for>` allows you to iterate both values and prime numbers. You can specify a numeric range, or specify some list available from the `DataStorage` global data store
+A special widget/tag `<for>` allows you to iterate both values and prime numbers. You can specify a numeric range, or specify some list available from the `DataStorage` global data store and parent context
 
 ## Data
 
 You can draw the Nui interface based on the data, and update this interface when the data is updated. The following widgets/tags will help you do this: `<data>` - a tag that allows you to specify certain values on keys to be placed in `DataStorage`. This can be useful if you want to be able to change over-used parameters in one place, or if you are forming some complex data structure that will determine the appearance of any elements on the screen. Second tag: `<dataBuilder>` - allows you to update nested elements when the data used in these elements changes, or generate events when the corresponding data changes.
 
-In order to use this functionality, in addition to using the widgets themselves - `NuiListWidget` or `NuiStackWidget` - you need to use the following widget and class somewhere in the parent zone of these widgets:
+If you want to predefine `<data>` variables, in addition to using the widgets themselves - `NuiListWidget` or `NuiStackWidget` - you need to use the following widget and class somewhere in the parent zone of these widgets:
 
 ```dart
 class _RootViewState extends State<RootView> {
   /// Created DataStorage will contains all the data, from the subtree, under what's it will be declared
   /// You able to have as many DataStorage's as you want, or you can have only one for whole app
-  final DataStorage dataStorage = DataStorage();
+  final DataStorage dataStorage = DataStorage(data: <String, String>{});
 
   @override
   Widget build(BuildContext context) {
