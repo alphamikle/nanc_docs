@@ -1,10 +1,13 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import posthog from 'posthog-js'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
 import styles from './index.module.css';
+
+posthog.init('phc_u5QVDkHQ1UEt01A6Wm0o66EZVM6Jgi0FhmxbFSuhqKg', { api_host: 'https://app.posthog.com' })
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
