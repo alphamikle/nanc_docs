@@ -106,4 +106,14 @@ module.exports = {
       additionalLanguages: ['dart', 'yaml', 'json5', 'sql'],
     },
   },
+  plugins: [
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: 'phc_u5QVDkHQ1UEt01A6Wm0o66EZVM6Jgi0FhmxbFSuhqKg',
+        appUrl: 'https://app.posthog.com', // optional
+        enableInDevelopment: true,
+      },
+    ],
+  ],
 };
