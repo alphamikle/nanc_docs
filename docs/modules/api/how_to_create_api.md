@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Config package
 
-The first thing you need - is the nanc configuration [package](https://pub.dev/packages/nanc_configuration) and the [nanc](https://pub.dev/packages/nanc) itself packages. You can use the instructions in its **[description](../../packages/nanc_configuration)** and then come back here.
+The first thing you need - is the nanc configuration [package](https://pub.dev/packages/nanc_configuration) and the [nanc](https://pub.dev/packages/nanc) itself packages. You can use the instructions in its **[description](../nanc_configuration)** and then come back here.
 
 ## Collection api
 

@@ -144,7 +144,7 @@ flutter:
           weight: 300
 ```
 
-- You need to register the used fonts with the `FontsStorage` class from the [`nanc_fonts`](https://pub.dev/packages/nanc_fonts) **[package](./packages/nanc_fonts)**:
+- You need to register the used fonts with the `FontsStorage` class from the [`nanc_fonts`](https://pub.dev/packages/nanc_fonts) **[package](modules/nanc_fonts)**:
 
 ```dart
 import 'package:nanc_fonts/nanc_fonts.dart';
@@ -165,7 +165,7 @@ You can do this, for example, when initializing an application. If you want to u
 
 ### Custom icons
 
-If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in **[CMS configuration](./cms_configuration)** section. To do the same in the application, you should use `IconsStorage` class from [`nanc_icons`](./packages/nanc_icons) **[package](https://pub.dev/packages/nanc_icons)**:
+If you want to use custom icons, you will also need to register them. Registration of icons in Nanc is described in **[CMS configuration](./cms_configuration)** section. To do the same in the application, you should use `IconsStorage` class from [`nanc_icons`](modules/nanc_icons) **[package](https://pub.dev/packages/nanc_icons)**:
 
 ```dart
 import 'package:ionicons/ionicons.dart';

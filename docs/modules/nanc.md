@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 # Nanc
@@ -151,7 +151,7 @@ A field for storing an array of values of a predefined type. Or to store a singl
 
 A model is a representation of the data structure of your document. For example - you can have a table in a database storing users. In this case, to be able to manage the data in that table, you need to create a user model that reflects the fields that the documents in that table have. For example - name, age, gender and so on.
 
-Nanc imposes a certain restriction on models - each model must have at least one [IdField](./nanc_fields#id-field). And this field must be in `String` format. The ideal candidate for this identifier value is UUID, but you can use any other value (and, looking ahead, you'll use it for a couple of special models).
+Nanc imposes a certain restriction on models - each model must have at least one [IdField](./nanc.md#id-field). And this field must be in `String` format. The ideal candidate for this identifier value is UUID, but you can use any other value (and, looking ahead, you'll use it for a couple of special models).
 
 Also, you can use regular incrementable identifiers at your database level as well, but at this point, the task of type conversion (from `String` to `int`) should be handled by you, at your backend or `ICollectionApi` and `IDocumentApi` level
 
@@ -196,7 +196,7 @@ The `icon` is the string name of the icon that will be displayed in the Nanc int
 
 You can also preview all available icons, search through them to select the appropriate one. And how to do this - you can learn in the section devoted to the package [Icons](./nanc_icons).
 
-The `fields` - is responsible for the contents of the model. You have a large list of fields available that you can use to describe your data structures. See the [Fields](./nanc_fields) section for more information.
+The `fields` - is responsible for the contents of the model. You have a large list of fields available that you can use to describe your data structures. See the [Fields](./nanc.md#fields) section for more information.
 
 The `isCollection` parameter determines whether the model is a representation of a collection of documents, or refers to a single document.
 
@@ -218,11 +218,11 @@ You can also create models using the interface. To do this, you need to go to th
 
 On this screen, you will see all the model parameters available to you for editing through code, as well as all the available fields you can add to the model.
 
-Important clarification - changing the structure of the model (how exactly it was created is not important) - will not affect your data. However, this only applies to [API packages](./api) that come standard with Nanc. So you won't compromise the integrity of your data by accidentally or intentionally changing the structure of your model. Hence the following one conclusion - if you want to completely remove a field in your NoSQL table / collection, you need to remove that field from the model and also remove it manually in your data layer.
+Important clarification - changing the structure of the model (how exactly it was created is not important) - will not affect your data. However, this only applies to [API packages](./api/) that come standard with Nanc. So you won't compromise the integrity of your data by accidentally or intentionally changing the structure of your model. Hence the following one conclusion - if you want to completely remove a field in your NoSQL table / collection, you need to remove that field from the model and also remove it manually in your data layer.
 
 But you are not limited by anything in your own API implementation, and you can provide automatic deletion of anything you want (but we don't advise to do so).
 
-Another clarification concerns the model itself - if you delete the model, it does not cause the deletion of the associated table / NoSQL collection. Again, this is about standard [API packages](./api).
+Another clarification concerns the model itself - if you delete the model, it does not cause the deletion of the associated table / NoSQL collection. Again, this is about standard [API packages](./api/).
 
 #### Hybrid approach
 

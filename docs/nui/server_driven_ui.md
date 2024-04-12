@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Nanc Server Driven UI, called **Nui** here and later, allows you to implement an interface of almost any complexity out of the box. That being said, you can extend the widgets available to you very easily and do whatever you want.
 
-You have access to logical operators that hide or show interface elements, cycles, templating and variables - defined directly in the UI code and accessible from the outside - for example, the entire parent context of the document, one of the **[fields](../packages/nanc_fields.md)** of which is `Screen Field`.
+You have access to logical operators that hide or show interface elements, cycles, templating and variables - defined directly in the UI code and accessible from the outside - for example, the entire parent context of the document, one of the **[fields](../modules/nanc.md#fields)** of which is `Screen Field`.
 
 ## How to start
 
@@ -14,7 +14,7 @@ You have access to logical operators that hide or show interface elements, cycle
 Next, we will describe working with a special field - `Screen Field` - a part of Nanc that is responsible for capabilities related to Server Driven UI. There is no need for you to use Nanc if you want to use Nui; however, learning about such capabilities will be useful.
 :::
 
-First you need to add the **Screen** field to your model. Depending on how it's created - with code or through the user interface - you'll use the appropriate paths. For the code you will need the `ScreenField` class from the **[fields](../packages/nanc_fields.md)** module.
+First you need to add the **Screen** field to your model. Depending on how it's created - with code or through the user interface - you'll use the appropriate paths. For the code you will need the `ScreenField` class from the **[fields](../modules/nanc.md#fields)** module.
 
 But we'll take a look at the approach to creating mobile application screens through the Nanc user interface.
 
@@ -234,7 +234,7 @@ Nanc supports many ways to achieve interactivity - handling custom clicks/taps, 
 
 The value of the `onPressed` parameter - within the framework of Nanc concepts, is called an event. Event can be any string, and you can assign handlers for any events. Say, you can make a handler for events starting with the string `addToCart:`.
 
-The event handler is a special `EventHandler` class that you can import from the **[config](../packages/nanc_configuration)** package.
+The event handler is a special `EventHandler` class that you can import from the **[config](../modules/nanc_configuration)** package.
 
 Having implemented the required `EventHandler`s - you must implement them in your widget tree via another widget called `EventDelegate`, which you can import from the `nui` package - the package required for your mobile application that is going to render the **Nui**:
 

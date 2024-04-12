@@ -8,7 +8,7 @@ There can be many reasons for adding a new widget type (with the corresponding t
 
 ## Prerequisites
 
-In order for you to create your own tagged widget, you need to install the **[`nui`](../packages/renderer.md)** package.
+In order for you to create your own tagged widget, you need to install the **[`nui`](../modules/nui)** package.
 
 ## Tag renderer
 
@@ -135,7 +135,7 @@ class SvgArguments {
 }
 ```
 
-As you can see, ready functions for field serialization / deserialization are actively used here, and in addition - all fields of our DTO are optional. It is highly recommended to always make all fields optional, as any of the arguments may not be present in the XML code. You can get ready functions for serialization / deserialization from the **[`nanc_tools`](../packages/nanc_tools)** package.
+As you can see, ready functions for field serialization / deserialization are actively used here, and in addition - all fields of our DTO are optional. It is highly recommended to always make all fields optional, as any of the arguments may not be present in the XML code. You can get ready functions for serialization / deserialization from the **[`nanc_tools`](../modules/nanc_tools)** package.
 
 Let's take a look at the updated renderer:
 

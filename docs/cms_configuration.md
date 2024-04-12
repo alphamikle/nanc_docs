@@ -57,7 +57,7 @@ The `documentApi` is responsible for implementation of API service that will per
 
 ## Model API
 
-The `modelApi` allows you to set up an API service that will be responsible for network requests related to the **[model](./packages/model)**. If you decide to change the very data structure of your documents - you will be changing the model. And all changes made to the model structure can be mirrored in your infrastructure. For example - when creating a new model, you may want to automatically create a corresponding table in your database. This service will be responsible for that logic.
+The `modelApi` allows you to set up an API service that will be responsible for network requests related to the **[model](modules/nanc.md#model)**. If you decide to change the very data structure of your documents - you will be changing the model. And all changes made to the model structure can be mirrored in your infrastructure. For example - when creating a new model, you may want to automatically create a corresponding table in your database. This service will be responsible for that logic.
 
 However, some data providers do not require the explicit creation of tables or their counterparts, such as - Firebase. In this case, the implementation of this service can be empty, because you do not need additional actions to get a new data structure (a new document, in this case).
 
@@ -114,7 +114,7 @@ In the future, extensibility will become even more advanced, allowing you to rep
 
 ## Predefined models
 
-`predefinedModels` is a set of code-first models that will be available in your Nanc CMS immediately. You can also add here source code of those models that are created in Nanc through the interface. In this case, this model will become a hybrid model. What this is, is described in detail in the section about **[Models](./packages/model)**.
+`predefinedModels` is a set of code-first models that will be available in your Nanc CMS immediately. You can also add here source code of those models that are created in Nanc through the interface. In this case, this model will become a hybrid model. What this is, is described in detail in the section about **[Models](modules/nanc.md#model)**.
 
 ## Custom renderers
 
@@ -167,4 +167,4 @@ And copy the corresponding [file](https://github.com/alphamikle/nanc/blob/master
 
 ## Mobile app configuration
 
-If you are planning to use Nanc Server Driven UI in a mobile Flutter application, it is necessary to configure it as well. To do this, pay attention to the following section: **[Mobile App Configuration section](./app_configuring)**.
+If you are planning to use Nanc Server Driven UI in a mobile Flutter application, it is necessary to configure it as well. To do this, pay attention to the following section: **[Mobile App Configuration section](./app_configuring.md)**.

@@ -96,17 +96,17 @@ Future<void> main() async {
 
 On that stage, you should decide - which APIs you will use to connect to your data. For now already implemented several APIs:
 
-#### [Local API](./packages/api/nanc_api_local)
+#### [Local API](modules/api/nanc_api_local)
 
 Which work with local JSON-file as a backend. On the web it will use LocalStorage.
 
 > Local API is zero-config API, very simple to use and to get know Nanc.
 
-#### [Supabase API](./packages/api/nanc_api_supabase)
+#### [Supabase API](modules/api/nanc_api_supabase)
 
 Completely ready solution for working with Supabase. It supports all features for managing your data directly from Nanc - powerful filtering, creating new tables, managing relationships, etc.
 
-#### [Firebase API](./packages/api/nanc_api_firebase)
+#### [Firebase API](modules/api/nanc_api_firebase)
 
 Completely ready solution for working with Firebase. Makes it easy to get started with Nanc, using Firebase as a data source!
 

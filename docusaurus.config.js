@@ -7,9 +7,9 @@ module.exports = {
   favicon: 'favicon.svg',
   url: 'https://nanc.io',
   baseUrl: '/',
-  organizationName: 'Nanc Inc.',
+  organizationName: 'Nanc',
   projectName: 'nanc',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
